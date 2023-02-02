@@ -1,0 +1,100 @@
+{% include 'header.twig' %}
+
+<div class="alann">
+<div class="bosluk"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="servisbilgi" style="margin-bottom:0">
+        <div class="scroll">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>{{ lang['dripfeed.id'] }}</th>
+              <th>{{ lang['dripfeed.date'] }}</th>
+              <th class="width-40">{{ lang['dripfeed.link'] }}</th>
+              <th>{{ lang['dripfeed.total_charges'] }}</th>
+              <th class="nowrap">{{ lang['dripfeed.quantity'] }}</th>
+              <th>{{ lang['dripfeed.service'] }}</th>
+              <th class="nowrap">{{ lang['dripfeed.runs'] }}</th>
+              <th>{{ lang['dripfeed.interval'] }}</th>
+              <th>{{ lang['dripfeed.total_quantity'] }}</th>
+              <th>{{ lang['dripfeed.status'] }}</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for dripFeed in orders %}
+              <tr>
+                <td>{{ dripFeed['id'] }}</td>
+                <td>{{ dripFeed['date'] }}</td>
+                <td class="width-40">{{ dripFeed['link'] }}</td>
+                <td>{{ dripFeed['total_charges'] }}</td>
+                <td class="nowrap">{{ dripFeed['quantity'] }}</td>
+                <td>{{ dripFeed['service'] }}</td>
+                <td class="nowrap">
+                  {% if dripFeed['delivery'] %}
+                    <a href="orders?dripfeed={{ dripFeed['id'] }}"> {{ dripFeed['delivery'] }} </a> / {{ dripFeed['runs'] }}
+                  {% else %}
+                    {{ dripFeed['delivery'] }} / {{ dripFeed['runs'] }}
+                  {% endif %}
+                </td>
+                <td>{{ dripFeed['interval'] }}</td>
+                <td>{{ dripFeed['total_quantity'] }}</td>
+                <td>{{ dripFeed['status'] }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a href="dripfeeds/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a href="dripfeeds/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a href="dripfeeds/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+
+{% include 'footer.twig' %}

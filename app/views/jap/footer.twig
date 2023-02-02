@@ -1,0 +1,67 @@
+
+<script type="text/javascript" src="{{ site["url"] }}/public/jap/ajax.js"></script>
+<script type="text/javascript">
+    var registeredServices = [];
+    var mode = "2";
+    var menu = "1";
+
+    jQuery('.coleql_height').matchHeight();
+
+    jQuery(document).ready(function($) {
+      jQuery('.stellarnav').stellarNav({
+        theme: 'light',
+        breakpoint: 0,
+        position: 'right',
+      });
+    });
+
+    jQuery(function() {
+      jQuery(".sidebar-menu-toggle, .sidebar-close").click(function() {
+        jQuery(".sidebar").toggleClass("active");
+        jQuery(".collapse-view").toggleClass("shrink");
+
+        if (menu == 1) menu = 2;
+        else menu = 1;
+        $.get('/changevariable/custom_variable_3?value=' + menu, function() {});
+      });
+
+      jQuery(".theme-toggle").click(function() {
+        jQuery("body").toggleClass("dark");
+
+        if (mode == 1) {
+          mode = 2;
+        } else {
+          mode = 1;
+        }
+
+        $.get('/changevariable/custom_variable_1?value=' + mode, function() {});
+      });
+    });
+
+    
+    //Pusher.logToConsole = true;
+
+
+  </script>
+
+ <footer class="footer" id="footer">
+      <div class="container clearfix collapse-view ">
+        <div class="logo"><a href="#"><img src="{{ site['logo'] }}" alt=""></a></div>
+        <ul>
+          <li><a href="/faq">Faq</a></li>                
+          <li><a href="/terms">Terms & Policy</a></li>
+        </ul>
+        <p>All Rights Reserved {{ site["site_name"] }} ©</p>
+      </div>
+    </footer>
+  </div>
+  <!-- Bootstrap core JavaScript================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+
+  {{ footerCode }}
+
+  <script src="https://www.google.com/recaptcha/api.js?hl=tr"></script>
+
+</body>
+</html>

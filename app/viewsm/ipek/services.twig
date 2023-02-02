@@ -1,0 +1,114 @@
+{% include 'header.twig' %}
+
+
+ <div class="inner-page">  
+ <div class="container">  
+ 
+ 
+	<section>
+	    <center><h2><strong>Fiyat Listesi</strong></h2></center>
+	    <hr>
+	     {% if site['service_speed'] == 2 %}
+
+  <section class="service-search-panel">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          
+           <div class="top justify-content-center text-center">
+            <span class="list">
+              <span class="">
+              <span style="color: #f24236;font-weight: 500; font-size:15px;" class="fa fa-arrow-down"></span>
+              <span style="color: #f24236;font-weight: 500; font-size:15px;">: Çok Yavaş</span></span>
+              <span class="ml-4x">
+              <span style="color: #fe6d86;font-weight: 500; font-size:15px;" class="fa fa-arrow-down"></span>
+              <span style="color: #fe6d86;font-weight: 500; font-size:15px;">: Yavaş</span></span>
+              <span class="ml-4x">
+              <span style="color: #5696c9;font-weight: 500; font-size:15px;" class="fa fa-compress"></span>
+              <span style="color: #5696c9;font-weight: 500; font-size:15px;">: Normal</span></span>
+              <span class="ml-4x">
+              <span style="color: #0dd887;font-weight: 500; font-size:15px;" class="fa fa-arrow-up"></span>
+              <span style="color: #0dd887;font-weight: 500; font-size:15px;">: Hızlı</span></span>
+            </span>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </section>
+          {% endif %}
+
+     <section>
+               {% for category in serviceCategory %}
+          <div class="card-body">
+   <div class="row">
+              <div class="servie-data-panel" data-category="Instagram - Followers [Guaranteed/Refill] - Less Drops ⭐">
+          <div class="title social-title sticky-top">
+            <!--               12
+             -->
+                          <i></i><i class="fa fa-{{ category["category_icon"] }}"></i> {{ category["category_name"] }} 
+                      </div>
+          <div class="table-responsive-xl">
+            <table class="table table-striped scroll ">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Servis</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Minimum</th>
+            <th scope="col">Maximum</th>
+            <th>Açıklama</th>
+          </tr>
+          </thead>
+          <tbody>
+                      {% for service in category['services'] %}
+                      
+                  <tr>
+                    <td>{{ service["service_id"] }}</td>
+                    <td>{{ service["service_name"] }}</td>
+                    <td>
+                <span class="badge">  {{ service["service_price"] }}</span>
+                    </td>
+                    <td><span class="badge" style="background:#4ede80; color: #fff">{{ service["service_min"] }}</span></td>
+                    <td><span class="badge" style="background:#2272d6; color: #fff">{{ service["service_max"] }}</span></td>
+                    <td>
+                     <!-- Modal -->
+                        <div class="modal fade" id="servis{{ service["service_id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ service["service_name"] }} </h5> 
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body text-left">
+                                <p class="detail-data details-split-959"> {{ service["service_description"] }}</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-blue" data-dismiss="modal">Kapat</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div><a href="javascript:void(0)" class="btn btn-blue " data-toggle="modal" data-target="#servis{{ service["service_id"] }}">
+                        <i class="fa fa-eye"></i> 
+                      </a>
+                  
+                        </td>
+                  </tr>
+                {% endfor %}
+                      </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+              {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.twig' %}

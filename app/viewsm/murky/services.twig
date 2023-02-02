@@ -1,0 +1,84 @@
+{% include 'header.twig' %}
+
+
+<div class="bosluk">
+<div class="content">
+        <div class="row">
+          <div class="col-lg-12">
+
+ 
+        {% if site['service_speed'] == 2 %}
+
+          <div class="top justify-content-center text-center">
+            <span class="list">
+              <span class="">
+              <span style="color: #f24236;font-weight: 500; font-size:10px;" class="fa fa-arrow-down"></span>
+              <span style="color: #f24236;font-weight: 500; font-size:10px;">: {{ lang['services.speed.veryslow'] }}</span></span>
+              <span class="ml-4x">
+              <span style="color: #fe6d86;font-weight: 500; font-size:10px;" class="fa fa-arrow-down"></span>
+              <span style="color: #fe6d86;font-weight: 500; font-size:10px;">: {{ lang['services.speed.slow'] }}</span></span>
+              <span class="ml-4x">
+              <span style="color: #5696c9;font-weight: 500; font-size:10px;" class="fa fa-compress"></span>
+              <span style="color: #5696c9;font-weight: 500; font-size:10px;">: {{ lang['services.speed.normal'] }}</span></span>
+              <span class="ml-4x">
+              <span style="color: #0dd887;font-weight: 500; font-size:10px;" class="fa fa-arrow-up"></span>
+              <span style="color: #0dd887;font-weight: 500; font-size:10px;">: {{ lang['services.speed.fast'] }}</span></span>
+            </span>
+          </div><br>
+ 
+        {% endif %}
+    
+
+
+
+<div class="col-lg-12">
+       <div class="card">
+        <div class="card-header ">
+      	 <div class="servisbilgi">
+           <div class="scroll">
+       
+
+      <div class="container">
+<table class="table  results" data-vertable="Type1">
+<thead>
+          <tr>
+            <th>{{ lang['services.id'] }}</th>
+            <th class="width-service-name">{{ lang['services.name'] }}</th>
+            <th class="nowrap">{{ lang['services.price'] }}</th>
+            <th class="nowrap">{{ lang['services.min'] }}</th>
+            <th class="nowrap">{{ lang['services.max'] }}</th>
+          </tr>
+          </thead>
+          <tbody>
+              {% for category in serviceCategory %}
+                <tr style="background-color:#6463E8;">
+              <td colspan="6" style="color:#ffffff;"><strong><i class="fa fa-{{ category["category_icon"] }}"></i> {{ category["category_name"] }} </strong></td>
+                </tr>
+                {% for service in category['services'] %}
+                  <tr>
+                    <td>{{ service["service_id"] }}</td>
+                    <td>{{ service["service_name"] }}</td>
+                    <td>
+                      {{ service["service_price"] }}
+                    </td>
+                    <td>{{ service["service_min"] }}</td>
+                    <td>{{ service["service_max"] }}</td>
+                  </tr>
+                {% endfor %}
+              {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>      </div>
+    </div>
+  </div>
+</div>
+
+  
+{% include 'footer.twig' %}
+
+  
+

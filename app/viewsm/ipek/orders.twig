@@ -1,0 +1,127 @@
+{% include 'header.twig' %}
+
+<div class="inner-page">
+  
+  <section class="service-search-panel">
+    <div class="container">
+      <div class="search-panel">
+        <form action="" method="get">
+              <div class="form-group">
+                <div class="input-group">
+                <input type="text" name="search" class="form-control" value="" placeholder="Sipariş Numarası">
+                
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-green"><i class="fa fa-search" aria-hidden="true"> </i> Ara</button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="card my-orders-panel">
+        <div class="card-body">
+          <div class="tabs-wrapper">
+           
+            <ul class="nav nav-justified nav-tabs dragscroll horizontal ">
+              <li  {% if 'all' == status %}  class="nav-item active" {% endif %}  class="nav-item "><a class="nav-link" href="/orders"><i class="fa fa-list-ul"></i> Tüm Siparişler</a></li>
+              <li {% if 'pending' == status %}  class=" nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/orders/pending"><i class="fa fa-clock"></i> Sipariş Alındı</a></li>
+              <li {% if 'inprogress' == status %}  class="nav-item active" {% endif %}  class="nav-item "><a class="nav-link" href="/orders/inprogress"><i class="fa fa-spinner"></i> Yükleniyor</a></li>
+              <li  {% if 'completed' == status %}  class="nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/orders/completed"><i class="fa fa-check"></i> Tamamlandı</a></li>
+              <li {% if 'partial' == status %}  class="nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/orders/partial"><i class="fa fa-hourglass-half"></i> Kısmen Tamamlandı</a></li>
+              <li {% if 'processing' == status %}  class="nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/orders/processing"><i class="fa fa-chart-line"></i> Gönderim Sırasında</a></li>
+              <li  {% if 'canceled' == status %}  class="nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/orders/canceled"><i class="fa fa-times-circle"></i> İptal Edildi</a></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+              <div class="table-responsive">
+            <table class="table table-striped ">
+              <thead>
+            <tr>
+              <th>#</th>
+              <th>Tarih</th>
+              <th class="width-40">Bağlantı</th>
+              <th>Tutar</th>
+              <th class="nowrap">Başlangıç Sayısı</th>
+              <th>Miktar</th>
+              <th>Servis Adı</th>
+              <th>Sipariş Durumu</th>
+              <th>Kalan</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for order in orders %}
+              <tr>
+                <td>{{ order['id'] }}</td>
+                <td>{{ order['date'] }}</td>
+                <td class="width-40">{{ order['link'] }}</td>
+                <td>{{ order['charge'] }}</td>
+                <td class="nowrap">{{ order['start_count'] }}</td>
+                <td>{{ order['quantity'] }}</td>
+                <td>{{ order['service'] }}</td>
+                <td>{{ order['status'] }}</td>
+                <td>{{ order['remains'] }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="nav-item active" {%endif%}><a href="orders/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+{% include 'footer.twig' %}

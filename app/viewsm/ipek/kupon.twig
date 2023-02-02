@@ -1,0 +1,29 @@
+{% include 'header.twig' %}
+<div class="inner-page">
+  <section>
+    <div class="container">
+      <div class="row justify-content-center payments-card">
+    
+      
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% elseif success %}
+        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+<br><br><br>
+      
+   <h2>Geri Dön <i class="	fa fa-mail-reply-all"></i></h2> 
+      
+      </div>
+  </div>
+</div>
+
+
+
+{% include 'footer.twig' %}

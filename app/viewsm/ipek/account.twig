@@ -1,0 +1,149 @@
+{% include 'header.twig' %}
+
+
+<div class="inner-page">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg">
+            
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if success %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+          		  <div class="card bg-white">
+            <div class="card-header">
+              <div class="card-title">Hesap Ayarları</div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="username" class="control-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="username" value="{{ user['username'] }}" readonly>
+              </div>
+              
+                   <form method="post" action="account">
+                            <div class="form-group">
+                <label for="current" class="control-label">Güncel Şifre</label>
+                <input type="password" class="form-control" id="current" name="current_password">
+              </div>
+              <div class="form-group">
+                <label for="new" class="control-label">Yeni Şifre</label>
+                <input type="password" class="form-control" id="new" name="password">
+              </div>
+              <div class="form-group">
+                <label for="confirm" class="control-label">Yeni Şifre (Tekrar)</label>
+                <input type="password" class="form-control" id="confirm" name="confirm_password">
+              </div>
+
+             
+              <button type="submit" class="btn btn-green">Şifremi Güncelle</button>
+            </form>
+            </div>
+          </div>
+        </div>
+
+          			
+          <div class="col-lg">
+			<div class="card bg-white">
+              <div class="card-header">
+              	<div class="card-title">Zaman Dilimi Ayarları</div>
+            </div>
+              
+              <div class="card-body">
+                <form class="pt-0" action="" method="post">
+                  <div class="form-group">
+                    <label for="timezone" class="control-label">Timezone</label>
+                    <select name="SettingsFrom[timezone]" id="timezone" class="form-control">
+                                            <option value="-43200" >(UTC -12:00) Baker/Howland Island</option>
+                                            <option value="-39600" >(UTC -11:00) Niue</option>
+                                            <option value="-36000" >(UTC -10:00) Hawaii-Aleutian Standard Time, Cook Islands, Tahiti</option>
+                                            <option value="-34200" >(UTC -9:30) Marquesas Islands</option>
+                                            <option value="-32400" >(UTC -9:00) Alaska Standard Time, Gambier Islands</option>
+                                            <option value="-28800" >(UTC -8:00) Pacific Standard Time, Clipperton Island</option>
+                                            <option value="-25200" >(UTC -7:00) Mountain Standard Time</option>
+                                            <option value="-21600" >(UTC -6:00) Central Standard Time</option>
+                                            <option value="-18000">(UTC -5:00) Eastern Standard Time, Western Caribbean Standard Time</option>
+                                            <option value="-16200" >(UTC -4:30) Venezuelan Standard Time</option>
+                                            <option value="-14400" >(UTC -4:00) Atlantic Standard Time, Eastern Caribbean Standard Time</option>
+                                            <option value="-12600" >(UTC -3:30) Newfoundland Standard Time</option>
+                                            <option value="-10800" >(UTC -3:00) Argentina, Brazil, French Guiana, Uruguay</option>
+                                            <option value="-7200" >(UTC -2:00) South Georgia/South Sandwich Islands</option>
+                                            <option value="-3600" >(UTC -1:00) Azores, Cape Verde Islands</option>
+                                            <option value="0" >(UTC) Greenwich Mean Time, Western European Time</option>
+                                            <option value="3600" >(UTC +1:00) Central European Time, West Africa Time</option>
+                                            <option value="7200" >(UTC +2:00) Central Africa Time, Eastern European Time, Kaliningrad Time</option>
+                                            <option value="10800" selected>(UTC +3:00) Moscow Time, East Africa Time, Arabia Standard Time</option>
+                                            <option value="12600" >(UTC +3:30) Iran Standard Time</option>
+                                            <option value="14400" >(UTC +4:00) Azerbaijan Standard Time, Samara Time</option>
+                                            <option value="16200" >(UTC +4:30) Afghanistan</option>
+                                            <option value="18000" >(UTC +5:00) Pakistan Standard Time, Yekaterinburg Time</option>
+                                            <option value="19800" >(UTC +5:30) Indian Standard Time, Sri Lanka Time</option>
+                                            <option value="20700" >(UTC +5:45) Nepal Time</option>
+                                            <option value="21600" >(UTC +6:00) Bangladesh Standard Time, Bhutan Time, Omsk Time</option>
+                                            <option value="23400" >(UTC +6:30) Cocos Islands, Myanmar</option>
+                                            <option value="25200" >(UTC +7:00) Krasnoyarsk Time, Cambodia, Laos, Thailand, Vietnam</option>
+                                            <option value="28800" >(UTC +8:00) Australian Western Standard Time, Beijing Time, Irkutsk Time</option>
+                                            <option value="31500" >(UTC +8:45) Australian Central Western Standard Time</option>
+                                            <option value="32400" >(UTC +9:00) Japan Standard Time, Korea Standard Time, Yakutsk Time</option>
+                                            <option value="34200" >(UTC +9:30) Australian Central Standard Time</option>
+                                            <option value="36000" >(UTC +10:00) Australian Eastern Standard Time, Vladivostok Time</option>
+                                            <option value="37800" >(UTC +10:30) Lord Howe Island</option>
+                                            <option value="39600" >(UTC +11:00) Srednekolymsk Time, Solomon Islands, Vanuatu</option>
+                                            <option value="41400" >(UTC +11:30) Norfolk Island</option>
+                                            <option value="43200" >(UTC +12:00) Fiji, Gilbert Islands, Kamchatka Time, New Zealand Standard Time</option>
+                                            <option value="45900" >(UTC +12:45) Chatham Islands Standard Time</option>
+                                            <option value="46800" >(UTC +13:00) Samoa Time Zone, Phoenix Islands Time, Tonga</option>
+                                            <option value="50400" >(UTC +14:00) Line Islands</option>
+                                          </select>
+                  </div>
+
+                  <button type="submit" class="btn btn-green">Kaydet</button>
+                </form>
+              </div>
+           </div>
+            
+            <div class="card bg-white mt-4">
+                          <div class="card-header">
+              <div class="card-title">API Ayarları</div>
+            </div>
+              
+            	<div class="card-body">
+                                  <form class="pt-0" action="account/newapikey" method="post">
+              <div class="form-group">
+                <label for="charge" class="control-label">API Link</label>
+                <input type="text" class="form-control" id="api_key" value="{{ site['url'] }}/api/v2" readonly>
+              </div>
+   <div class="form-group">
+                <label for="key" class="control-label">API key</label>
+                <input type="text" class="form-control" id="api_key" value="{{ user['apikey'] }}" readonly>
+              </div>
+             
+              <button type="submit" class="btn btn-green">Yeni API Key Oluştur
+              </div>
+            </div>
+      		</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'footer.twig' %}

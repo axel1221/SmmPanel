@@ -1,0 +1,438 @@
+{% include 'header.twig' %}
+
+<div id="arka">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+<div class="container" style=" padding-top: 100px; padding-bottom: 100px; ">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="well" style=" margin: 15px; ">
+        <center><img src="public/images/logo.png" alt="" title="" width="%100" height="43"></center><p><p>
+        <p style="text-align: center; text-align: center;color: #223c61; font-size: 15px;">Sosyal Medya Bayi Paneline Hoşgeldiniz. <br> Aşağıdan giriş yapa bilirsiniz</p>
+            
+        
+       
+        
+        
+              {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+        <form  method="post" action="/">
+          
+<div class="loginbox">  
+          
+   <div class="form-group">
+                        <div class="login-label ml-1 pt-3 pl-3">
+                            <i class="sli icon-user" aria-hidden="true"></i>
+                        </div>
+                        <input type="text" class="form-control login-input" id="username" name="username" placeholder="{{ lang['signin.username'] }}">
+                    </div>
+
+          <div class="form-group">
+                        <div class="login-label ml-1 pt-1 pl-3">
+
+			
+                                                    </div>
+                        <input type="password" class="form-control login-input" id="password" name="password" placeholder="{{ lang['signin.password'] }}">
+            
+                    </div>     </div>    
+      
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="LoginForm[remember]" value="1" id="remember">Beni Hatırla
+            </label>
+          </div>
+                                    
+
+
+                       {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}
+          
+
+  <button type="submit" class="btn btn-warning btn-block">Giriş Yap</button>
+
+ 
+                  </form>
+</div>
+      </div>
+    
+<div class="col-md-7 "> 
+	
+	<div class="floating">
+		<img style="width:100%" src="https://skins.grey-loft.com/ariana/assets/images/banner/banner_img.png" alt="">
+
+</div>
+	</div>
+		
+    </div>    
+
+
+</div>
+</div>
+<style>
+#maintop {
+
+    background-color:#f0f5f8;
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%;
+}
+.pricetablo {
+    border: solid 1px #ddd;
+    border-radius: 15px;
+    text-align: center;
+	font-family: 'Poppins', sans-serif;
+	margin-top:80px;
+	-webkit-transition: all .3s;
+    transition: all .3s;
+	
+	padding: 16px;
+}
+.pricetablo:hover {
+	margin-top:40px;
+	-webkit-box-shadow: 0px 20px 23px 13px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 20px 23px 13px rgba(0,0,0,0.10);
+    box-shadow: 0px 20px 23px 13px rgba(0,0,0,0.10);
+}
+
+.pricetablo:hover .cost {
+	background:#ffa200;
+}
+
+.pricetitle h3 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.cost {
+
+    padding: 0px;
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+	color:#223c61;
+}
+
+.dollar {
+    font-size: 19px;
+    margin-right: -5px;
+}
+
+.in {
+    font-size: 19px;
+    margin-right: -10px;
+}
+  
+.form-control {
+    display: block;
+    width: 100%;
+    height: 58px;
+    padding: 15px 16px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #3e3f3a;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #d8dbec;
+    border-radius: 26px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 50px); }
+    to   { transform: translate(0, -0px); }    
+}
+
+.forgot-password {
+    position: absolute;
+    right: 21px;
+    bottom: 18px;
+    color: #566d9a;
+}
+
+
+.forgot-password:hover {
+    position: absolute;
+    right: 21px;
+    bottom: 18px;
+    color: #000;
+}
+.pull-right-middle {
+    line-height: 80px;
+}
+
+a {
+    color: #ff0000;
+    text-decoration: none;
+}
+a:hover {
+    color: #000;
+}
+
+.priceline  {
+    margin-top: 11px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    line-height: 31px;
+    padding-bottom: 15px;
+}
+  
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #223c61;
+    opacity: 0.3;
+	
+	margin-bottom:100px;
+	margin-top:100px;
+}
+
+.musteriyorumlari h1 {
+    padding: 0px;
+    font-weight: 700;
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #223c61;
+}
+
+.musteriyorumlari p {
+    margin-top: 11px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    line-height: 31px;
+    padding-bottom: 15px;
+}
+  
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.musteriyorumlari .yorum h2 {
+    padding: 0px;
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #223c61;
+}
+.musteriyorumlari .yorum  {
+    margin-top:50px;
+}
+.musteriyorumlari .yorum p{
+    line-height: 20px;
+}
+.musteriyorumlari .yorum img {
+    border-radius:50%;
+}
+
+.star  {
+    color: #ff8d00;
+    font-size: 17px;
+    padding-bottom: 10px;
+	margin-top:-15px;
+}
+
+    </style>
+  
+  </div>
+</div>
+</div>
+<div class="container">
+		
+			<div class="row">
+			
+			
+		<div class="container musteriyorumlari">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h1>medyaortam.com Servisleri</h1>
+				</div>
+			</div>			
+<div class="col-lg-3">
+					<div class="pricetablo">
+						<div class="pricetitle">
+							<h3><img src="https://turkpanelim.com/img/instagram.png" alt="" title="" width="%100" height="250"></center></h3>
+							<div class="cost">
+								<span class="in">Instagram</span>
+							</div>
+						</div>
+						<div class="pricedetails">
+						</div>
+					</div>
+				</div>		
+				<div class="col-lg-3">
+					<div class="pricetablo">
+						<div class="pricetitle">
+							<h3><img src="https://turkpanelim.com/img/twitter.png" alt="" title="" width="%100" height="250"></center></h3>
+							<div class="cost">
+								<span class="in">Twitter</span>
+							</div>
+						</div>
+						<div class="pricedetails">
+						</div>
+					</div>
+				</div>	
+<div class="col-lg-3">
+					<div class="pricetablo">
+						<div class="pricetitle">
+							<h3><img src="https://turkpanelim.com/img/youtube.png" alt="" title="" width="%100" height="250"></center></h3>
+							<div class="cost">
+								<span class="in">YouTube</span>
+							</div>
+						</div>
+						<div class="pricedetails">
+						</div>
+					</div>
+				</div>	
+<div class="col-lg-3">
+					<div class="pricetablo">
+						<div class="pricetitle">
+							<h3><img src="https://turkpanelim.com/img/facebook.png" alt="" title="" width="%100" height="250"></center></h3>
+							<div class="cost">
+								<span class="in">Facebook</span>
+							</div>
+						</div>
+						<div class="pricedetails">
+						</div>
+					</div>
+				</div>	
+				
+				
+				
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<hr />
+				</div>
+			</div>
+		</div>
+		
+		<div class="container musteriyorumlari">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h1>Müşteri Yorumları</h1>
+					
+					<p>Tired of looking at hundreds of panels with services that simple doesnt work? <br />
+					social media with the best quality and quicker delivery on the market!
+					</p>
+					
+				</div>
+			</div>
+			<div class="row yorum">
+				<div class="col-lg-4 text-center">
+					
+					
+					<img src="https://randomuser.me/api/portraits/men/74.jpg" alt="" /> <br /> <br />
+					
+					<h2>Michelle Hawkins</h2>
+					<div class="star">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-half-alt"></i>
+					</div>
+					
+
+		
+					<p>Wow! This is amazing, i have been purchasing Instagram Likes for over a year and never got a delay! Bulkfollows did a great job always</p>
+				</div>
+				<div class="col-lg-4 text-center">
+					
+					
+					<img src="https://randomuser.me/api/portraits/men/74.jpg" alt="" /> <br /> <br />
+					
+					<h2>Michelle Hawkins</h2>
+					<div class="star">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-half-alt"></i>
+					</div>
+					
+					
+					<p>Wow! This is amazing, i have been purchasing Instagram Likes for over a year and never got a delay! Bulkfollows did a great job always</p>
+				</div>
+				<div class="col-lg-4 text-center">
+					
+					
+					<img src="https://randomuser.me/api/portraits/men/74.jpg" alt="" /> <br /> <br />
+					
+					<h2>Michelle Hawkins</h2>
+					<div class="star">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-half-alt"></i>
+					</div>
+					
+					
+					<p>Wow! This is amazing, i have been purchasing Instagram Likes for over a year and never got a delay! Bulkfollows did a great job always</p>
+				</div>
+				
+				
+				
+				
+			</div>
+		</div>
+
+
+  
+  
+  
+ 
+{% include 'footer.twig' %}

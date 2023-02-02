@@ -1,0 +1,298 @@
+{% include 'header.twig' %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="//images.ogboost.net/numscroller-1.0.js"></script>
+<div class="top-banner" style="padding-bottom: 176.429px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md">
+      
+      <h1 class="heading"> {{ contentText }} </h1>
+      <h4 class="sub-heading"><strong>{{ site["site_name"] }}</strong> Kalitesi İle Tanışın!</h4>
+      <p class="pera"><strong>{{ site["site_name"] }}</strong> üzerinden 7/24 otomatik bakiye yükleyerek hizmet satın alabilir aynı zamanda müşterilerinize satış yaparak gelir elde edebilirsiniz.</p>
+      <p class="pera"><strong>{{ site["site_name"] }}</strong> sağlanılan hizmetler otomatik bir şekilde başlar. Eğer panel sahibiyseniz API desteği ile harika servislerimizi müşterilerinize hızlı bir şekilde sunabilirsiniz.</p>
+      <a href="/signup" class="btn btn-green mr-2 hvr-bob">Ücretsiz Üye Ol</a>
+      <a href="#" class="btn btn-white hvr-bob">Giriş Yap</a>
+    </div>
+      
+      <div class="col-md text-md-right">
+        <div class="card login-panel">
+          <div class="card-body">
+            <div class="title">Giriş Yap</div>
+             {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+            <form  method="post" action="">
+              
+              
+              <div class="form-group">
+                <label for="username" class="control-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
+              </div>
+              <div class="form-group form-group__password">
+                <label for="password" class="control-label">Şifre</label>
+                <input type="password" class="form-control" name="password" placeholder="Şifre">
+                                                  <a href="/resetpassword" class="link float-right forgot-password">Şifreni mi Unuttun?</a>
+                              </div>
+              
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"  name="remember" value="1" id="remember"> Beni Hatırla
+                </label>
+              </div>
+
+                {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}
+             
+              <div class="form-group text-center">
+              	<button type="submit" class="btn btn-green hvr-bob">Giriş Yap</button>
+              </div>
+              
+                            <p class="text-center">Henüz üye değil misiniz? <a href="/signup">Ücretsiz Üyelik Oluştur</a></p>
+                          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <script src='https://www.google.com/recaptcha/api.js?hl=tr'></script>
+</div>
+
+<section class="bg-light smm-services"> <div class="container">
+  <h2 class="sec-heading"><span class="blue">🏆 #1</span> Piyasanın en iyi<span class="blue"> SMM Paneli 👈</span><small>İşe yaramayan basit hizmetlerle yüzlerce panele bakmaktan bıktınız mı? Piyasadaki en iyi kalitede ve daha hızlı teslimatla sosyal medya hizmetlerimizi inceleyin!</small>
+  </h2>
+
+        </div> </section>
+       
+<div class="all-order-counts">1219473</div>
+     <section class="advantage-sec" style="
+    background-color: white;
+"> <div class="container">
+            <h2 class="sec-heading">Müşteri <span class="blue">Memnuniyeti 👍</span>
+			<small>Kaliteli Servisler, Kullanıcı Dostu Arayüz, Sorunsuz Hizmet</small>
+            </h2>
+             </section> <section class="bg-light smm-services"> <div class="container">
+            <h2 class="sec-heading">Bütün Platformlar İçin <span class="blue">Servislerimiz </span>Aktif 💪
+			<small>Sadece Takipçi & Beğeni İle Sınırlı Değil! Özgün Tasarımlar, İzlenme, Yorum, Anket Oylaması ve Dahası</small>
+            </h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 cols">
+                    <div class="card facebook hvr-icon-push">
+                        <div class="card-body">
+                            <span class="icon"> <i class="fab fa-facebook hvr-icon"></i> </span>
+                            <h3 class="title"><b>FACEBOOK</b> Servislerimiz</h3>
+                            <p class="pera">
+Facebook sayfanızdaki beğeniler ile marka imajı oluşturun ve satışlarınızda artış yakalayın. İster kurumsal firma olun, ister bireysel bir sayfa yöneticisi;    
+Durum beğenisi, takipçi, yorum, yorum beğenisi, anket oylaması, sayfa puanlaması
+gibi servislerimizle sizi bir adım öne taşıyalım. Kurumsal ya da bireysel
+hesabınızı güçlendirme vakti.
+</p>   
+                        </div>
+                    </div>
+                    
+                </div>
+				
+                
+                <div class="col-md-6 col-lg-4 cols">
+                    <div class="card instagram hvr-icon-push">
+                        <div class="card-body">
+                            <span class="icon"> <i class="fab fa-instagram hvr-icon"></i> </span>
+                            <h3 class="title"><b>INSTAGRAM</b> Servislerimiz</h3>
+                            <p class="pera">Şu bir gerçek ki artık İnstagram'da kişi veya firmalar sahip oldukları kitlelere göre değerlendiriliyor. 
+İşte biz de tam olarak bu anda devreye giriyoruz. Takipçi, beğeni, etkileşim, izlenme, anket oylaması, yorum
+beğenisi, canlı yayın izleyicisi, keşfet gibi servislerimizden yaralanarak kitle sahibi olmaya bir adım daha yaklaşın!</p>   
+                        </div>
+                    </div>
+                    
+                </div>
+				
+            
+                <div class="col-md-6 col-lg-4 cols">
+                    <div class="card twitter hvr-icon-push">
+                        <div class="card-body">
+                            <span class="icon"> <i class="fab fa-twitter hvr-icon"></i> </span>
+                            <h3 class="title"><b>TWITTER</b> Servislerimiz</h3>
+                            <p class="pera">Twitter'da kaliteli kitle sahibi olmak, tweetlerinize favori ve RT servisi almak, video izlenmesi hatta Twitter'da gündem olmak 
+(Trend Topic) bizimle çok kolay! Siz de Twitter'da her anlamda öne çıkmak istiyorsanız hemen üyeliğinizi 
+oluşturup servislerimizden yararlanmaya başlayın. Firmanızın veya kişisel hesabınızın yükselişini seyredin.</p>   
+                        </div>
+                    </div>
+                    
+                </div>
+				<div class="col-md-6 col-lg-4 cols">
+                    <div class="card youtube hvr-icon-push">
+                        <div class="card-body">
+                            <span class="icon"> <i class="fab fa-youtube hvr-icon"></i> </span>
+                            <h3 class="title"><b>YOUTUBE</b> Servislerimiz</h3>
+                            <p class="pera">
+Youtube kanalınızı canlandırmaya hazır mısınız? Görüntüleme, beğeni, 
+abone ve yorum servisleriyle kanalınız her zamankinden daha önde olacak!
+Yapmanız gereken tek şey üye olup servislerimizden yararlanmak.
+</p>   
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-6 col-lg-4 cols">
+                    <div class="card other hvr-icon-push">
+                        <div class="card-body">
+                            <span class="icon"> <i class="fas fa-globe-asia hvr-icon"></i> </span>
+                            <h3 class="title"><b>Web Site</b> Servislerimiz</h3>
+                            <p class="pera">Kurumsal bir firmanın kimliği Web sitesidir. Eğer bir Web Siteniz yoksa bu hiç
+sorun değil. Sizler için SEO uyumlu siteler yapıyoruz. 
+Bunun yanında site organik hit servisimizle rakiplerinizden daha önce üstte
+yer almanızı sağlayabiliriz.</p>   
+                        </div>
+                    </div>
+                    
+                </div>
+				  <div class="col-md-6 col-lg-4 cols">
+                    <div class="card diger hvr-icon-push">
+                        <div class="card-body">
+                            <span class="icon"> <i class="fa fa-desktop hvr-icon"></i> </span>
+                            <h3 class="title"><b>Diğer</b> Servislerimiz</h3>
+                            <p class="pera">Sadece bir SMM sitesi değil, tam kapsamlı hizmet. Tanıtım desteği, tabela, matbu ürünler, promosyon ürünleri, sosyal medya servisleri, web servisleri, hosting, fenomenler ile iş birliği ve dahası {{ site["site_name"] }} güvencesiyle sizlerle.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div> </section> 
+ <section class="bg-light"> <div class="container">
+            <h2 class="sec-heading">Ayrıcalıklar <span class="blue">Sizinde</span> Hakkınız! 
+			<small>Sıradan SMM Panellerde Vakit ve Nakit Kaybetmekten Sıkılmadınız Mı ?</small>
+            </h2>
+            <div class="row compare-panel">
+                <div class="cols col-lg">
+                    <div class="card">
+                        <div class="card-header bg-red">
+                            <h3 class="card-title">
+                                <span class="icon"></span> SIRADAN SMM</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Bakiye Eklerken Fazladan Ödenen %5 Komisyon</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Takip Edilmeyen, Çalışmayan Servisler ve Sistem Hataları</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Sınırlı Teknik Destek</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Ortalama 20-30 Adet Sevis (Sınırlı Platform)</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Kısmen Tamamlanan Siparişlerde Para Kaybı</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Kısa Sürede Ciddi Takipçi / Beğeni Düşüşü, Bot Hesaplar</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-frown red hvr-icon"></i></span> <span> Sadece Havele / Eft İle Bakiye Yükleme</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cols col-lg">
+                    <div class="card">
+                        <div class="card-header bg-green">
+                            <h3 class="card-title">
+                            <span class="icon"></span>MEDYA DARK</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> Komisyonsuz Ödeme, Peşin Fiyatına 3-6-9 Ay Taksit ve Bonuslar</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> Günlük Servis Kontrolleri, Düzenli Sistem Güncellemeleri</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> 7 Gün 24 Saat Teknik ve Canlı Destek</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> +150 Kaliteli Servis (Bütün Platformlar)</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> Kısmen Tamamlanan Siparişlerde Otomatik Bakiye İadesi</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> Bir Çok Garantili & Otomatik Telafili Servis, Gerçek Hesaplar</span>
+                                </li>
+                                <li class="list-group-item hvr-icon-up">
+                                    <span class="icon"><i class="far fa-smile green hvr-icon"></i></span> <span> Yurt İçi / Yurt Dışı Kredi Kartı (7/24), Havale/Eft, Avans Hesap, Bitcoin</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> </section>
+
+  <div class="support-panel">
+    <div class="bg-graphic wave" style="margin-top: -226.429px;"></div>
+    <div class="container position-relative">
+      <h3 class="title">
+            <i class="fa fa-star"></i><span> 7/24 Size Yardımcı Olabilmek İçin Buradayız!</span>
+        </h3>
+      <div class="row">
+        <div class="col-md">
+          <div class="card"> <a href="/tickets" class="card-body hvr-icon-pop"><i class="fa fa-comments hvr-icon"></i> Destek Talebi</a>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card"> <a href="#" class="card-body hvr-icon-pop"><i class="fa fa-envelope hvr-icon"></i> info@medyadark.com</a>
+          </div>
+        </div>
+        <div class="card"> <a href="#" class="card-body hvr-icon-pop"><i class="fab fa-whatsapp hvr-icon"></i> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</section>
+    <hr>
+<section> 
+  <div class="container">
+            <h2 class="sec-heading">{{ site["site_name"] }} ile <span class="blue">para kazanmak</span> ister misiniz? <small>Kendi sosyal medya pazarlama hizmetleri işinizde bir devrim başlatabilirsiniz!
+</small>
+            </h2>
+            <div class="row marketing-panel">
+                <div class="col-md-7 mb-3">
+        
+                    <p class="font-weight-bold">{{ site["site_name"] }} SMM Paneli İle para kazanmaya başlamak için sadece birkaç basit adım izletin:</p>
+
+                    <ul class="list">
+                        <li><i class="fa fa-check-circle"></i> Kendi web sitenizde {{ site["site_name"] }} API kullanmak için kaydolun</li>
+                        <li><i class="fa fa-check-circle"></i> Sunmak istediğiniz sosyal medya hizmetlerini seçin</li>
+                        <li><i class="fa fa-check-circle"></i> Onları belirli bir kar oranına göre sitenize ekleyin</li>
+                        <li><i class="fa fa-check-circle"></i> Hizmetlerinizi satmaya başlatın!</li>
+                    </ul>
+
+                    <p class="font-italic">İşte bu kadar basit!</p>
+
+                    <a href="/signup" class="btn btn-blue hvr-bob">ÜCRETSİZ ÜYE OL</a>    </div>
+                <div class="col-md-3">
+                    
+                </div>
+            </div>
+        </div> 
+</section>
+
+{% include 'footer.twig' %}

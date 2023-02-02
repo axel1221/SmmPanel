@@ -1,0 +1,186 @@
+{% include 'header.twig' %}
+<div class="container">
+   <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+         <div class="well api well-float">
+            <div class="center-big-content-block">
+               <h2 class="m-b-md">API Dökümanı</h2>
+               <table class="table table-bordered">
+                  <tbody>
+                     <tr>
+                        <td class="width-40">HTTP Method</td>
+                        <td>POST</td>
+                     </tr>
+                     <tr>
+                        <td>API URL</td>
+                        <td>{{ site["url"] }}/api/v2</td>
+                     </tr>
+                     {% if user['auth'] %}
+                     <tr>
+                        <td>API Key</td>
+                        <td>{{ user["apikey"] }}</td>
+                     </tr>
+                     {% endif %}
+                     <tr>
+                        <td>Geri dönüş formatı</td>
+                        <td>JSON</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <h4 class="m-t-md"><strong> Servis Listesi </strong></h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th class="width-40">Parametre</th>
+                        <th>Açıklama</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>key</td>
+                        <td>Kullanıcı API Key</td>
+                     </tr>
+                     <tr>
+                        <td>action</td>
+                        <td>services</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p><strong>Örnek geri dönüş</strong></p>
+               <pre>[
+    {
+        "service": 1,
+        "name": "Followers",
+        "type": "Default",
+        "category": "First Category",
+        "rate": "0.90",
+        "min": "50",
+        "max": "10000"
+    },
+    {
+        "service": 2,
+        "name": "Comments",
+        "type": "Custom Comments",
+        "category": "Second Category",
+        "rate": "8",
+        "min": "10",
+        "max": "1500"
+    }
+]</pre>
+               <h4 class="m-t-md"><strong> Yeni Sipariş </strong></h4>
+               <p>
+               </p>
+               <form class="form-inline">
+                  <div class="form-group">
+                     <select class="form-control input-sm" id="api_servicetype">
+                        <option value="1">Standart</option>
+                     </select>
+                  </div>
+               </form>
+               <p></p>
+               <div id="add_">
+                  <table class="table table-bordered">
+                     <thead>
+                        <tr>
+                           <th class="width-40">Parametre</th>
+                           <th>Açıklama</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>key</td>
+                           <td>Kullanıcı API Key</td>
+                        </tr>
+                        <tr>
+                           <td>action</td>
+                           <td>add</td>
+                        </tr>
+                        <tr>
+                           <td>service</td>
+                           <td>Servis ID</td>
+                        </tr>
+                        <tr>
+                           <td>link</td>
+                           <td>Hizmet bağlantısı</td>
+                        </tr>
+                        <tr>
+                           <td>quantity</td>
+                           <td>Miktar</td>
+                        </tr>
+                        <tr>
+                           <td>runs (opsiyonel)</td>
+                           <td>Runs to deliver</td>
+                        </tr>
+                        <tr>
+                           <td>interval (opsiyonel)</td>
+                           <td>Interval in minutes</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <p><strong>Örnek geri dönüş</strong></p>
+               <pre>{
+    "order": 23501
+}</pre>
+               <h4 class="m-t-md"><strong> Sipariş Durumu </strong></h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th class="width-40">Parametre</th>
+                        <th>Açıklama</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>key</td>
+                        <td>Kullanıcı API Key</td>
+                     </tr>
+                     <tr>
+                        <td>action</td>
+                        <td>status</td>
+                     </tr>
+                     <tr>
+                        <td>order</td>
+                        <td>Sipariş ID</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p><strong>Örnek geri dönüş</strong></p>
+               <pre>{
+    "charge": "0.27819",
+    "start_count": "3572",
+    "status": "Partial",
+    "remains": "157",
+    "currency": "TRY"
+}</pre>
+               <h4 class="m-t-md"><strong> Kullanıcı bakiyesi </strong></h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th class="width-40">Parametre</th>
+                        <th>Açıklama</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>key</td>
+                        <td>Kullanıcı API Key</td>
+                     </tr>
+                     <tr>
+                        <td>action</td>
+                        <td>balance</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p><strong>Örnek geri dönüş</strong></p>
+               <pre>{
+    "balance": "100.84292",
+    "currency": "TRY"
+}</pre>
+               <a href="example.txt" class="btn btn-default m-t" target="_blank">Örnek PHP dosyası</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% include 'footer.twig' %}

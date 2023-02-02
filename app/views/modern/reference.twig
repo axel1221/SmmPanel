@@ -1,0 +1,63 @@
+{% include 'header.twig' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                <div class="well well-float ">
+                  <h2 style="text-align: center;"><b>REFERANS</b>  KAZANÇ <b>SİSTEMİ </b> </h2>
+<br>
+
+<b>Referans linkinizle {{ settings['site_name']}}'a kayıt olan kişilerin tüm bakiye ekleme işlemlerinde ödediği ücretin %{{ settings['ref_present'] }}'inin hesabınıza tanımlandığı referans sistemi kullanıma açılmıştır.</b>
+<br><b>Tek yapmanız gereken Davet Linkiniz üzerinden {{ settings['site_name']}}'a üye kazandırmanız. Unutmayın, sadece hesabınıza tanımlanan link üzerinden kayıt açıp bakiye yükleyen üyeliklerden bonus kazanacaksınız, davet sınırı yok!</b>
+<br>
+<br><ul><li><b>• Sadece yeni kazandırdığınız bakiye yükleyen kullanıcılar için ödeme yapılır, kendi kendine referans olanlar için ödeme yapılmaz ve fark edildiğinde site üzerindeki hesapları kapatılır.</b></li><li><b>• Referans üzerinden kazancınız {{ settings['ref_price']}} TL olmadan istek gönderemezsiniz.</b></li><li><b>• Referanslarınızın yapmış olduğu, her ödemeden %{{ settings['ref_present']}} bonus kazanırsınız.</b></li><li><b>• Minimum ödeme miktarı dolduğunda "Ödeme İsteği Gönder " butonu ekrana çıkacaktır.</b></li>
+                </div>
+                </div></div></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                        <div class="well well-float">
+                <table class="table ">
+                    <thead>
+                    <tr>
+                        <th>Davetiye Linkiniz</th>
+                        <th>Hediye Oranı</th>
+                        <th>Minimum Ödeme </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ site['url'] }}/auth?{{ user['username'] }}</td>
+                        <td>%{{ settings['ref_present'] }}</td>
+                        <td>{{ settings['ref_price'] }}₺</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="well well-float">
+                <table class="table ">
+                    <thead>
+                    <tr>
+                        <th>Toplam Getirilien Üye</th>
+                        <th>Dönüşüm Oranı</th>
+                        <th>Toplam Kazanç</th>
+                        <th>Bekleyen Kazanç</th>
+                                            </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>0.00%</td>
+                        <td>0.00₺</td>
+                        <td>0.00₺</td>
+                                            </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
+                    </div>
+    </div>
+</div>
+
+{% include 'footer.twig' %}

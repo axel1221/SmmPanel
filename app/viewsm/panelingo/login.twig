@@ -1,0 +1,138 @@
+{% include 'header.twig' %}
+
+
+
+
+
+
+<div class="container">
+    <div class="row mt-8 m-mt-3">
+        <div class="col-lg-6 col-md-12 col-xs-12 hidden-xs">
+            <br><br><br>
+ <img src="https://ucarecdn.com/e75a9281-6417-4cdd-9790-21a49af866ee/webdevelopmentresponsive.png" width="470" height="%100"></div>
+
+
+            <div class="col-lg-5 col-md-12 col-xs-12">
+            
+         <font size="7" font color="#fff">Hoşgeldiniz!</font><br>
+
+        
+        
+
+     
+      {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+      <div class="well saydam">
+        <form  method="post" action="">
+          
+          
+        <div class="loginbox">  
+          
+   <div class="form-group">
+                        <div class="login-label ml-1 pt-3 pl-3">
+                            <i class="sli icon-user" aria-hidden="true"></i>
+            <label for="username" class="control-label">Kulanıcı Adı</label>
+                        </div>
+                        <input type="text" class="form-control login-input" id="username" name="username" placeholder="{{ lang['signin.username'] }}">
+                    </div>
+
+          <div class="form-group">
+                        <div class="login-label ml-1 pt-1 pl-3">
+                                       <label for="password" class="control-label">Şifre</label>
+                          <a href="/resetpassword" class="pull-right">Şifremi Unuttum </a>
+			
+                                                    </div>
+                        <input type="password" class="form-control login-input" id="password" name="password" placeholder="{{ lang['signin.password'] }}">
+            
+                    </div>     </div>    
+      
+          <div class="checkbox">
+              <input type="checkbox" name="remember" value="1" id="remember">
+              <label for="remember">
+                  Bilgilerimi Hatırla
+              </label>
+                                    
+                              </div>
+
+                       {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}   
+ 
+          <button type="submit" class="btn btn-primary login-btn btn-block"><strong>Giriş Yap</strong></button><br>
+<p class="ucretsizuyelik"> {{ settings['site_name']  }} üyelikleri tamamen ücretsizdir. Size para karşılığı üyelik satmak isteyen şahıslara itibar etmeyiniz! Eğer  {{ settings['site_name']  }} üyeliğiniz yok ise <a href="/signup"> hemen üye olabilirsiniz! </a>
+              <span class="forget-ps">Yeni Hesap Oluştur <a href="/signup">Kayıt Ol</a></span>
+          
+                  </form>
+      </div>     
+      </div>
+      </div>
+
+
+  
+  <hr>
+  
+  
+<div class="row mt-5 m-d-none ">
+        <div class="col-12">
+            <h1 class="h1-highlight text-center">SMM Panel - <span class="highlight">Sosyal Medya
+                    Bayilik Paneli</span>            </h1>
+            <p class="p-feature text-center">{{ settings['site_name']  }} Türkiye'nin en ucuz ve en büyük sosyal medya bayilik
+                paneli olmakla birlikte sizlere en iyi hizmeti sunar. {{ settings['site_name']  }}, sosyal medya uygulamaları
+                geliştirerek şu anki jenerasyonda sana sosyal medya kullanımında sana yardım eder.
+            </p>
+            <p class="p-feature text-center mt-3">
+                {{ settings['site_name']  }} sosyal medya platformlarında, doğru kullanıldığı taktirde belirlediğin bir kitleye ulaşman
+                için tüm desteği sağlar. Bu, aslında  {{ settings['site_name']  }}’nin yaratılış amacıdır.
+            </p>
+      <hr>
+          
+          
+          <div class="col-12">
+  	<h3 class="kurumsal-cozumler-h text-center mt-4">{{ settings['site_name']  }} İle Kurumsal Çözümler</h3>
+    <p class="kurumsal-cozumler-p text-center">{{ settings['site_name']  }} Panel üzerinde kendi işinizi oluşturabilir ve gelir elde edebilirsiniz. Kurumsal arayüzümüz, kolay işlem kabiliyetimiz ve API desteğimiz ile eşi benzeri olmayan, Türkiye'nin en büyük "Sosyal Medya Pazarlama" sitesi olmaktan gurur duyuyoruz.</p>
+    </div>
+
+          
+          <div class="row mt-4 m-d-none text-center">
+      <div class="col-lg-4 col-xs-12">
+        <img class="kurumsal-cozumler-img" src="https://svgshare.com/i/Dcj.svg" alt="" title="">
+        
+        <h4 class="kurumsal-cozumler-h4 mt-4">Kurumsal Arayüz</h4>
+        <p class="kurumsal-cozumler-p2">{{ settings['site_name']  }} SMM Paneli üzerinde yaptığınız işlemleri tek tek ayrıntılı bir şekilde görüntüleyebilir, satış yaptığınız müşterilerinize daha detaylı raporlar sunabilirsiniz.</p>
+      </div>
+      <div class="col-lg-4 col-xs-12">
+        <img class="kurumsal-cozumler-img" src="https://svgshare.com/i/DbB.svg" alt="" title="">
+        <h4 class="kurumsal-cozumler-h4 mt-4">Kolay İşlem</h4>
+      <p class="kurumsal-cozumler-p2">{{ settings['site_name']  }} paneli üzerinde işlemlerinizi kolayca gerçekleştirerek siparişlerinizin anlık olarak başlamasını sağlayabilir bu durumda zaman kazanarak hızlıca işlemlerinizi gerçekleştirebilirsiniz.</p>
+      </div>
+      <div class="col-lg-4 col-xs-12">
+        <img class="kurumsal-cozumler-img" src="https://svgshare.com/i/Ddr.svg" alt="" title="">
+        <h4 class="kurumsal-cozumler-h4 mt-4">API Desteği</h4>
+      <p class="kurumsal-cozumler-p2">{{ settings['site_name']  }} API desteği sayesinde web siteniz üzerinden kendi müşterilerinize, komisyonunuzu koyarak satış yapabilirsiniz, bu durumda kendi işinizi oluşturarak gelir elde edebilirsiniz.</p>
+      </div>
+  </div>
+          
+          
+
+        </div>
+    </div>
+  
+  <br><br><br>
+
+
+
+
+
+{% include 'footer.twig' %}

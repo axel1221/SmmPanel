@@ -1,0 +1,380 @@
+{% include 'header.twig' %}
+
+
+<!-- Main variables *content* -->
+<section class="formSection">
+	<div class="container">
+      	<div class="row">
+      		<div class="col-sm-12">
+      			<img class="p-a moon" src="https://cdn.mypanel.link/e2cdfc/zezy17g6j6z14h4d.png"/>
+              	<img class="p-a planet" src="https://cdn.mypanel.link/e2cdfc/wersztcf2ux2m4sf.png"/>
+              	<span class="p-a icon w icon1"><i class="fab fa-facebook-f"></i></span>
+              	<span class="p-a icon w icon2"><i class="fab fa-youtube"></i></span>
+              	<span class="p-a icon w icon3"><i class="fab fa-twitter"></i></span>
+              	<span class="p-a icon w icon4"><i class="fab fa-instagram"></i></span>
+      		</div>
+      	</div>
+		<div class="row">
+			<div class="col-sm-7">
+	
+
+				<h1>Accelerated marketing<br> Find your true space</h1>
+              	<form  method="post" action="/">
+                  
+                                   		          {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %} 
+                  <div class="row">
+                  	<div class="col-sm-12">
+                  		<div class="form-group">
+                          <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        </div>
+                      	<div class="form-group">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>                      	
+                  	</div>
+                  </div>
+                  <div class="row">
+                  	<div class="col-sm-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"  name="remember" value="1" id="remember">Remember me
+                        </label>                        
+                      </div>
+                      
+                       {% if captcha %}
+                        <div class="form-group">
+                          <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+                        </div>
+                      {% endif %}
+                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                  	</div>
+                    <div class="col-sm-6">
+                  		                      		<a href="/resetpassword" class="forgot-password">Forgot password?</a>
+                      	                  	</div>
+                  </div>
+                                    <div class="row">
+                  	<div class="col-sm-12">
+                  		<span class="pull-right-middle">Do not have an account? <a href="/signup">Sign up</a></span>
+                  	</div>
+                  </div>
+                                    <input type="hidden" name="_csrf" value="T-0HT3ZiE6pjWpNepH_huF96ciAYXEv3IFPfAOTC2UEam1MCMVpA7RAD9mjmGpCPZgMbDSoXL693A4Y2pqWfdQ==">
+                </form>
+			</div>
+          	<div class="col-sm-5">
+				<img class="rakit" src="https://cdn.mypanel.link/e2cdfc/ywhp4d1zmxgpa1j3.png"/>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    <div class="col-md-8 col-md-offset-2">#}
+
+
+{#      <div class="well">#}
+{#        <form  method="post" action="">#}
+
+{#          <div class="form-group">#}
+{#            <label for="username" class="control-label">{{ lang['signin.username'] }}</label>#}
+{#            <input type="text" class="form-control" name="username">#}
+{#          </div>#}
+{#          <div class="form-group  form-group__password">#}
+{#            <label for="password" class="control-label">{{ lang['signin.password'] }}</label>#}
+{#            <input type="password" class="form-control" name="password">#}
+{#            {% if resetPage %}#}
+{#             <a href="resetpassword" class="forgot-password"> {{ lang['signin.password.lost'] }}</a>#}
+{#            {% endif %}#}
+{#          </div>#}
+{#          <div class="checkbox">#}
+{#            <label>#}
+{#              <input type="checkbox" name="remember" value="1">{{ lang['signin.remember'] }}#}
+{#            </label>#}
+{#          </div>#}
+
+{#          {% if captcha %}#}
+{#            <div class="form-group">#}
+{#              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>#}
+{#            </div>#}
+{#          {% endif %}#}
+
+{#          <button type="submit" class="btn btn-primary click">{{ lang['signin.button'] }}</button>#}
+{#          </form>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+
+<section class="whyUs">
+	<div class="container">
+      	<div class="row text-center">
+      		<div class="col-sm-12">
+      			<span class="p-a icon p icon5"><i class="fab fa-facebook-f"></i></span>
+              	<span class="p-a icon p icon6"><i class="fab fa-youtube"></i></span>
+              	<span class="p-a icon g icon7"><i class="fab fa-instagram"></i></span>
+              	<h2 class="title">There are many companies but<br> why choose us?</h2>
+      		</div>
+      	</div>
+      	<div class="row text-center">
+      		<div class="col-sm-4">
+      			<div class="singleChoose">
+      				<span>
+                        <i class="fas fa-comments"></i>
+                    </span>
+                  	<h3>Customer Support</h3>
+                  	<p>We are available 24/7 to listen to your queries, suggestions, concerns or complaints. Our efficient support team is well equipped with advanced technologies and all marketing tactics to guide you better in the light of theory.</p>
+      			</div>
+      		</div>
+          	<div class="col-sm-4">
+      			<div class="singleChoose">
+      				<span>
+                        <i class="fas fa-user-secret"></i>
+                    </span>
+                  	<h3>Privacy</h3>
+                  	<p>Protection is our foremost and prior feature after quality service, each and every personal detail of our customers are individually considered to make sure confidentiality. Your trust makes us big.</p>
+      			</div>
+      		</div>
+          	<div class="col-sm-4">
+      			<div class="singleChoose">
+      				<span>
+                        <i class="fas fa-chart-line"></i>
+                    </span>
+                  	<h3>Organic Growth</h3>
+                  	<p>This is our main goal to provide the highest quality, long-term results/services which directly help you grow organically. Organic growth is the dream of entrepreneurs, influencers and business person although we withstand with you all to achieve organic growth.</p>
+      			</div>
+      		</div>
+          	<div class="col-sm-4">
+      			<div class="singleChoose">
+      				<span>
+                        <i class="fas fa-chart-bar"></i>
+                    </span>
+                  	<h3>Long-Term Results</h3>
+                  	<p>As we are dedicated to instant delivery but we make sure our quality services ensure long-term results at your end. We want you to be popular and prosper as well as willing to help you grow your business.</p>
+      			</div>
+      		</div>
+          	<div class="col-sm-4">
+      			<div class="singleChoose">
+      				<span>
+                        <i class="fas fa-rss"></i>
+                    </span>
+                  	<h3>Higher Rankings</h3>
+                  	<p>Being one of the lowest rates social marketing service provider website we got great rankings. Although we don’t believe in numbers higher rankings are the metrics of acknowledgment while providing best rating services to customers.</p>
+      			</div>
+      		</div>
+          	<div class="col-sm-4">
+      			<div class="singleChoose">
+      				<span>
+                        <i class="fas fa-thumbs-up"></i>
+                    </span>
+                  	<h3>Quality Services</h3>
+                  	<p>From the day first we have maintained the quality of our services while having burden we do not compromise on the high-end quality of services we are providing. Every customer is our beloved and we ensure to deliver them the highest quality services and instant delivery every time.</p>
+      			</div>
+      		</div>
+      	</div>
+	</div>
+</section>
+
+<section class="smallThings">
+	<div class="container">
+		<div class="row">
+          	<div class="col-sm-6">
+              	<span class="p-a icon p icon9"><i class="fab fa-facebook-f"></i></span>
+              	<span class="p-a icon p icon10"><i class="fab fa-youtube"></i></span>             				  <img class="main-img" src="https://cdn.mypanel.link/e2cdfc/jr90qe4dxe5knbod.png"/>
+          	</div>
+          	<div class="col-sm-6">
+              	<h2 class="title">Still looking for more? <br> We have all kinds of customers</h2>
+                <p>We help musicians, bloggers, businesses, A-listed brands, celebrities, and way more. Learn more about what Upleap does for customers by niche!</p>
+                <p>{{ site["site_name"] }} is an expert has more than 8 years of experience in Social Media Marketing solution. We ensure 100% Satisfaction Guarantee with great services. {{ site["site_name"] }} always do our best to bring the best results for the customers. Customer satisfaction is our goal. Therefore, {{ site["site_name"] }} loved by thousands of customers in the world.</p>
+              	<hr />
+                <p>Stamp your authority on social media with the internationally recognized social media experts.</p>
+              	<p>We have got the best SMM & SEO services on the market, whether you're looking to buy Youtube, to buy  Instagram , to buy Spotify or if you are interested in buying any of the other services that we provide. Just register a user on our website, to view the full-service list. Our 24/7 professional team always glad to discuss any custom request  and offer to you the  prices in the world!!!</p>
+                <a class="btn-sm" href="/signup">Sign up</a>
+          	</div>
+		</div>
+	</div>
+</section>
+
+<section class="weOffer">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-sm-12">
+              	<span class="p-a icon g icon11"><i class="fab fa-twitter" aria-hidden="true"></i></span>
+				<h2 class="title">What We Offer</h2>
+              	<p>We are  Number #1 Fully Automated Social Media Panel who offer the best prices for SoundCloud, iTunes, Napster, Deezer, Tidal, TikTok, Twitch, Twitter, LinkedIn, TrustPilot, Pinterest, Quora, Reddit, and others.</p>
+			</div>
+		</div>
+      	<div class="row">
+			<div class="col-sm-4">
+              	<div class="media">
+                  	<div class="media-left media-top">
+                    	<a href="#">
+                      		<i class="fab fa-instagram" aria-hidden="true"></i>
+                    	</a>
+                  	</div>
+                  	<div class="media-body">
+                    	<h4 class="media-heading">instagram</h4>
+                    	<p>Buy Instagram Followers, Likes & More
+We're your friendly Instagram service provider. From us, you can buy the cheapest instagram followers, likes and views on the market, and on top of that, we provide you with the best service.</p>
+                  	</div>
+              	</div>
+              	<div class="media">
+                  	<div class="media-left media-top">
+                    	<a href="#" class="bgPink">
+                      		<i class="fab fa-youtube" aria-hidden="true"></i>
+                    	</a>
+                  	</div>
+                  	<div class="media-body">
+                    	<h4 class="media-heading">youtube</h4>
+                    	<p>Buy Youtube Subscribers, Views & More
+Youtube is one of the largest platforms available online, and this makes it one of the best ways to get recognized for the work you make. This is, of course, if you ever get spotted. We at {{ site["site_name"] }} will help you with that. From us, you can buy the cheapest youtube subscribers, likes or views.</p>
+                  	</div>
+              	</div>
+              	<span class="p-a icon g icon12"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+			</div>
+          	<div class="col-sm-4">
+              	<div class="media">
+                  	<div class="media-left media-top">
+                    	<a href="#" class="bgPink">
+                      		<i class="fab fa-spotify"></i>
+                    	</a>
+                  	</div>
+                  	<div class="media-body">
+                    	<h4 class="media-heading">Spotify</h4>
+                    	<p>Spotify is one of the major players in the music platform industry. To get known on this platform and getting in the charts would boost one's exposure immensely. We at SMM-World are going to help you with that. Here you find the cheapest spotify services around.</p>
+                  	</div>
+              	</div>              	
+              	<div class="media">
+                  	<div class="media-left media-top">
+                    	<a href="#">
+                      		<i class="fab fa-linkedin-in"></i>
+                    	</a>
+                  	</div>
+                  	<div class="media-body">
+                    	<h4 class="media-heading">linkedin</h4>
+                    	<p>With over 300 million active users, it is pretty evident that LinkedIn is one of the fastest growing social networking sites for professionals. Today, it is one of the most important platforms using which companies form networks, find employees, and of course, promote themselves and buy linkedin followers.</p>
+                  	</div>
+              	</div>
+			</div>
+          	<div class="col-sm-4">
+              	<div class="media">
+                  	<div class="media-left media-top">
+                    	<a href="#">
+                      		<i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    	</a>
+                  	</div>
+                  	<div class="media-body">
+                    	<h4 class="media-heading">Facebook</h4>
+                    	<p>What Are the Advantages of Buying Facebook Likes? Once people like your post/photo those likes will be permanent. There are millions of people who use Facebook around the world. It is good to be popular on Facebook as you can earn money. If you do business you can advertise your product/service to millions of people, improve your business. The more you get likes on Facebook, the more people you reach.</p>
+                  	</div>
+              	</div>
+              	<div class="media">
+                  	<div class="media-left media-top">
+                    	<a href="#" class="bgPink">
+                      		<i class="fab fa-twitter" aria-hidden="true"></i>
+                    	</a>
+                  	</div>
+                  	<div class="media-body">
+                    	<h4 class="media-heading">twitter</h4>
+                    	<p>{{ site["site_name"] }} is the leading Twitter Growth Panel used by pro's, beginners, and agencies alike. We're an active community of real people who love Twitter. We help other people find and follow you on Twitter. We're a directory of users listed by country and interests. Adding yourself is quick and easy and will have people connecting with you straight away.</p>
+                  	</div>
+              	</div>
+			</div>          	
+		</div>
+	</div>
+</section>
+
+<section class="readyToStart">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h4>Ready to Get Started?</h4>
+              	<a class="btn-sm" href="/signup">Sign up</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="yourtarget">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">              	
+              	<span class="p-a icon p icon13"><i class="fab fa-youtube" aria-hidden="true"></i></span>              	
+              	<div class="targetSlider">
+              		<div>
+              			<h2 class="title">Why is {{ site["site_name"] }} <br>so effective?</h2>
+                        <p>LIVE Chat Support for ALL clients! Customer Service is #1</p>
+                        <p>We work with Celebs, Artists, Creators, and more!</p>
+                        <p>100% Confidential Moneyback Guarantee</p>
+                      	<p>Here at {{ site["site_name"] }} , we strive for customer service as well as top quality performance. You are 100% protected by using our services.</p>
+                      	<p>All services will guarantee full delivery. If any problems do occur, we have a LIVE customer support chat available from  24/7.  With over 150,000 clients, we are the best All-In-One Social Media Marketing tool.</p>
+              		</div>
+                  	<div>
+              			<h2 class="title">Protecting your <br>Payments and Purchases</h2>
+                        <p>{{ site["site_name"] }} uses PayPal as the main payment gateway. Paypal is the world most popular payment processor, providing safe and secure payments. All purchases made with Paypal are also covered by a 90 Days Money-back guarantee and no information is stored on our website. Buy your Instagram Likes or Followers easy and secure. Additional Payment methods are also available, Bitcoin, Payoneer & Many more!</p>
+              		</div>
+                  	<div>
+              			<h2 class="title">Safe & Quick Purchase</h2>
+                        <p>We take our costumers social media accounts as its our own accounts, at {{ site["site_name"] }}  all purchase are made safe using Paypal and the delivery is 100% guaranteed!</p>
+              		</div>
+              	</div>
+              	<span class="p-a icon g icon14"><i class="fab fa-twitter" aria-hidden="true"></i></span>
+			</div>
+			<div class="col-sm-6">
+              	<span class="p-a icon p icon15"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+				<img class="main-img" src="https://cdn.mypanel.link/e2cdfc/bb1xir3sr0rh69wl.png"/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="testimonial">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+              	<span class="p-a icon g icon16"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+				<img class="main-img" src="https://cdn.mypanel.link/e2cdfc/4uoub8twi272bwpq.png"/>
+			</div>
+			<div class="col-sm-6">
+              	<span class="p-a icon p icon15"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+				<h2 class="title">What People<br> Say about {{ site["site_name"] }}</h2>
+              	<img class="quotes" src="https://cdn.mypanel.link/e2cdfc/2hfq3s9f7qj4g8kj.png"/>
+              	<div class="reviewSlider">
+              		<div>
+              			<img class="ratingStars" src="https://cdn.mypanel.link/e2cdfc/3t2g4qdrz2f4ghzc.png"/>
+                      	<h4>ComplexPirate</h4>
+                      	<p>{{ site["site_name"] }} is a very good company.<br>
+                          They have various sources of services which are in demand and can be very helpful in social media marketing.
+                          They have very effective communication depending on what country your from due to time differences.</p>
+              		</div>
+                  	<div>
+              			<img class="ratingStars" src="https://cdn.mypanel.link/e2cdfc/3t2g4qdrz2f4ghzc.png"/>
+                      	<h4>Comex</h4>
+                      	<p>This site really best in the world<br>
+                          This site really best in the world.I am usage many service.<br>
+                          service very fast and complete on time always.I am usage many panel but this panel really amazing service always provide. This panel service rate very cheap to others.and work quality top in the world.I suggest you can usage then panel.I am must be always usage panel.here have world best quality service.Instagram service real very cheap and high quality.YouTube views,likes,subscriber very good service.facebook likes and others service rate really very low to others.I am check many panel but this this panel really great in the world.Thanks {{ site["site_name"] }}.com</p>
+              		</div>
+                  	<div>
+              			<img class="ratingStars" src="https://cdn.mypanel.link/e2cdfc/3t2g4qdrz2f4ghzc.png"/>
+                      	<h4>Clara W. McDaniels</h4>
+                      	<p>I'm giving them five stars<br>
+                          I'm giving them five stars. If there were an option for more stars, I would give them a lot more. Really nice of them</p>
+              		</div>
+              	</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'footer.twig' %}

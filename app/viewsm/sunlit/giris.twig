@@ -1,0 +1,139 @@
+    <!-- Modal -->
+    <div class="modal fade" id="giris" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="abox">
+                    <center>
+                        <h2 style="color:#fff">MedyaOrtam</h2>
+                    </center>
+                    <p>
+                        <p>
+                            <p style="text-align: center; text-align: center;color: #fff; font-size: 15px;" class="font-alt">Sosyal Medya Bayi Paneline Hoşgeldiniz. <br> Aşağıdan giriş yapa bilirsiniz</p>
+                            {% if errorText %}
+                            <div class="alert alert-dismissible alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">×</button> {{ errorText }}
+                            </div>
+                            {% endif %} {% if successText %}
+                            <div class="alert alert-dismissible alert-success">
+                                <button type="button" class="close" data-dismiss="alert">×</button> {{ successText }}
+                            </div>
+                            {% endif %}
+
+                            <form method="post" action="/">
+
+                                <div class="loginbox">
+
+                                    <div class="form-group">
+                                        <div class="login-label ml-1 pt-3 pl-3">
+                                            <i class="sli icon-user" aria-hidden="true"></i>
+                                        </div>
+                                        <input type="text" class="form-control login-input" id="username" name="username" placeholder="{{ lang['signin.username'] }}">
+                                        <p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="login-label ml-1 pt-1 pl-3">
+
+
+                                        </div>
+                                        <input type="password" class="form-control login-input" id="password" name="password" placeholder="{{ lang['signin.password'] }}">
+
+                                    </div>
+                                </div>
+                                <p>
+                                    <div class="checkbox">
+                                        <label>
+              <input type="checkbox" name="LoginForm[remember]" value="1" id="remember" class="font-alt">Beni Hatırla
+            </label>
+                                    </div>
+                                    <p>
+
+
+
+                                        {% if captcha %}
+                                        <div class="form-group">
+                                            <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+                                        </div>
+                                        {% endif %}
+
+
+                                        <button type="submit" class="m-btn m-btn-white" style="width:100%">Giriş Yap</button>
+                                        <p></p>
+                                        <center><a class="normal-link" href="signup" style="color:#fff;">Henüz Üye Değil Misin? Üye Ol</a></center>
+
+
+
+
+                            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="kayit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="abox">
+                    <center>
+                        <h2 style="color:#fff">TürkPanelim</h2>
+                    </center>
+                    <p>
+                        <p>
+                            <p style="text-align: center; text-align: center;color: #fff; font-size: 15px;" class="font-alt">Sosyal Medya Bayi Paneline Hoşgeldiniz. <br> Aşağıdan Kayıt Olabilirsiniz</p>
+
+                            {% if errorText %}
+                            <div class="alert alert-dismissible alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">×</button> {{ errorText }}
+                            </div>
+                            {% endif %} {% if successText %}
+                            <div class="alert alert-dismissible alert-success">
+                                <button type="button" class="close" data-dismiss="alert">×</button> {{ successText }}
+                            </div>
+                            {% endif %}
+
+                            <form method="post" action="">
+                                <p>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" placeholder="Ad Soyad" value="{{ data['name'] }}">
+                                        <p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="email" placeholder="E-Mail" value="{{ data['email'] }}">
+                                        <p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı" value="{{ data['username'] }}">
+                                        <p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="telephone" placeholder="Telefon Numarası" value="{{ data['telephone'] }}">
+                                        <p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Parolar" name="password">
+                                        <p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Parola Tekrarı" name="password_again">
+                                    </div>
+
+                                    <p>
+                                        <div class="checkbox">
+                                            <label>            
+  <input type="checkbox" id="terms" class="terms-accept-checkbox" name="terms"{{ lang['signup.accept_terms_text'] }}
+               </div>
+
+          {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}
+
+            <br><button type="submit" class="m-btn m-btn-white" style="width:100%">{{ lang['signup.button'] }}</button><p>
+            <center><a class="normal-link" href="giris" style="color:#fff;">Zaten üyemisin? Giriş Yap</a></center>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>

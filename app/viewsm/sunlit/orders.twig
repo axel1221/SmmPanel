@@ -1,0 +1,92 @@
+{% include 'header.twig' %}
+
+
+<div class="bosluk">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card" style="width:100%;">
+        <div class="servisbilgi" style="margin-bottom:0">
+        <div class="scroll">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>{{ lang['orders.id'] }}</th>
+              <th>{{ lang['orders.date'] }}</th>
+              <th class="width-40">{{ lang['orders.link'] }}</th>
+              <th>{{ lang['orders.charge'] }}</th>
+              <th class="nowrap">{{ lang['orders.start.count'] }}</th>
+              <th>{{ lang['orders.quantity'] }}</th>
+              <th>{{ lang['orders.service'] }}</th>
+              <th>{{ lang['orders.status'] }}</th>
+              <th>{{ lang['orders.remains'] }}</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for order in orders %}
+              <tr>
+                <td>{{ order['id'] }}</td>
+                <td>{{ order['date'] }}</td>
+                <td class="width-40">{{ order['link'] }}</td>
+                <td>{{ order['charge'] }}</td>
+                <td class="nowrap">{{ order['start_count'] }}</td>
+                <td>{{ order['quantity'] }}</td>
+                <td>{{ order['service'] }}</td>
+                <td>{{ order['status'] }}</td>
+                <td>{{ order['remains'] }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a href="orders/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+
+{% include 'footer.twig' %}

@@ -1,0 +1,149 @@
+{% include 'header.twig' %}
+
+<div class="banner">
+          <div class="container">
+            <div class="row h-100">
+              <div class="col-md-6 my-auto">
+                <h2>#1 SMM PANEL IN THE<br><span>WORLD FOR 5 YEARS!</span></h2>
+                <p>JustAnotherPanel.com is simply the fastest, cheapest, BIGGEST panel in the SMM World.</p>
+                <a href="signup" class="btn btn-primary">SIGNUP NOW</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <div class="section  home-w1">
+        <div class="container">
+           
+<div class="login">
+    {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <form method="post" action="">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-6 mb-2"><input type="text" class="form-control" name="username" placeholder="Username"></div>
+              <div class="col-md-6 mb-2"><input type="password" class="form-control" name="password" placeholder="Password"></div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2"><input type="submit" class="btn btn-primary btn-block" value="Login"></div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-6 mb-2"><input type="checkbox" name="remember" id="rem" value="rem"><label for="rem"><span></span>REMEMBER ME</label></div>
+              
+                              <div class="col-6 mb-2">FORGOT YOUR PASSWORD? <a href="/resetpassword"><strong>RESET IT</strong></a></div>
+              
+                              <div class="col-6 mb-2">Do not have an account? <a href="/signup"><strong>Sign up</strong></a></div>
+                          </div>
+          </div>
+                  </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row stats">
+  <div class="col-md-4 mb-4">
+    <h2>0.14 SEC</h2>
+    <p>AN ORDER IS MADE EVERY</p>
+  </div>
+  <div class="col-md-4 mb-4">
+    <h2>199,635,298</h2>
+    <p>ORDERS COMPLETED</p>
+  </div>
+  <div class="col-md-4 mb-4">
+    <h2>$0.01/1K</h2>
+    <p>PRICES STARTING FROM</p>
+  </div>
+</div>
+
+<div class="w1-block">
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="icon-content">
+        <div class="media"><div class="icon"><img src="https://yourperfectapp.com/jap4/images/icon-1.png" alt=""></div><div class="media-body"><h6>Unbelievable</h6><p>Unbelievable prices, lowest in the market.</p></div></div>
+        <div class="media"><div class="icon"><img src="https://yourperfectapp.com/jap4/images/icon-2.png" alt=""></div><div class="media-body"><h6>Friendly Dashboard</h6><p>Engineered Dashboard to accomodate fast and simple use of the panel, best in the market.</p></div></div>
+        <div class="media"><div class="icon"><img src="https://yourperfectapp.com/jap4/images/icon-3.png" alt=""></div><div class="media-body"><h6>Delivered In Minutes</h6><p>Super fast delivery, fastest in the market.</p></div></div>
+        <div class="media"><div class="icon"><img src="https://yourperfectapp.com/jap4/images/icon-4.png" alt=""></div><div class="media-body"><h6>Support 24/7</h6><p>Support available around the clock, nothing like it in the market.</p></div></div>
+      </div>
+    </div>
+    <div class="col-lg-8 mb-4"><div class="embed-responsive embed-responsive-16by9"><iframe src="https://player.vimeo.com/video/475942005" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+  </div>
+</div>
+
+<div class="w1-btn">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <ul>
+        <li><a href="#">HIGHEST QUALITY SERVICES IN THE MARKET!</a></li>
+        <li><a href="#">FASTEST SERVICES IN THE MARKET!</a></li>
+        <li><a href="#">CHEAPEST SERVICES IN THE MARKET!</a></li>
+        <li><a href="#">BEST SUPPORT IN THE MARKET!</a></li>
+        <li><a href="#">BEST SMM PANEL IN THE WORLD!</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="w1-logos">
+    <li><img src="https://yourperfectapp.com/jap4/images/payment.png" alt=""></li>
+</div>
+        </div>
+      </div>
+      
+
+          <div class="testimonials">
+        <div class="shape"><img src="https://yourperfectapp.com/jap4/images/test-shape.png" alt=""></div>
+        <div class="testimonial-scroll">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="testimonial-inner">
+                  <div class="quote">
+                    <div class="quote-block">
+                      <div class="owl-carousel owl-theme CarouselOwl">
+                        <div class="item">
+                          <blockquote>"{{ site["site_name"] }} has really changed my life. I use {{ site["site_name"] }} to boost my clients' exposure on Youtube and Soundcloud, {{ site["site_name"] }} has made this job a 1000 times easier for me. I cannot thank them enough!"</blockquote>
+                          <div class="client clearfix">
+                            <img src="https://yourperfectapp.com/jap3/landing/img/profile1.png" alt="" width="10%" height="10%">
+                            <cite><strong>James Wilson</strong>HAPPY CLIENTS</cite>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <blockquote>"{{ site["site_name"] }} has helped my shoe company a lot. Over the past 4 months, my company sales have increased widely after I started on using {{ site["site_name"] }} on my company's Instagram to boost it!"</blockquote>
+                          <div class="client clearfix">
+                            <img src="https://yourperfectapp.com/jap3/landing/img/profile2.png" alt="" width="10%" height="10%">
+                            <cite><strong>Matilda Jones</strong>HAPPY CLIENTS</cite>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <blockquote>"I have been using {{ site["site_name"] }} for a year now, I am very happy with their panel. I never had a problem, and when something wrong occurs they always compensate and more! Simply the best!"</blockquote>
+                          <div class="client clearfix">
+                            <img src="https://yourperfectapp.com/jap3/landing/img/profile1.png" alt="" width="10%" height="10%">
+                            <cite><strong>Matt Reynolds</strong>HAPPY CLIENTS</cite>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+{% include 'footer.twig' %}

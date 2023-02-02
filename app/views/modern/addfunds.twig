@@ -1,0 +1,266 @@
+{% include 'header.twig' %}
+<div id="page-wrapper">
+  <div class="container">
+    <div class="inner-dashboard"> 
+    <div class="row">
+    
+    <div class="col-xs-12">
+
+        {% if error %}
+          <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ errorText }}
+          </div>
+        {% endif %}
+        {% if success %}
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ successText }}
+          </div>
+        {% endif %}
+      </div>
+
+ 
+    <div class="col-xs-12">
+        
+        {% if paymentsList %}
+        <div class="col-md-6">
+          <div class="well">
+       
+            <p style="text-align: center;">
+                <span style="font-weight: 700; font-size: 36px;"> {{ lang['addfunds.online.title'] }} </span>
+              </p>
+  
+              <form method="post" action="addfunds">
+
+                <div class="form-group">
+                  <label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+                  <select class="form-control" id="payment_method" name="payment_type">
+                   {% for payment in paymentsList %}
+                      <option value="{{ payment['id'] }}" {% if data['payment_type'] == payment['id'] %} selected {% endif %} >{{ payment['method_name'] }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                  <div class="form-group">
+                      <label for="method" class="control-label">{{ lang['addfunds.amount'] }}</label>
+                      <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}">
+                  </div>
+
+                <button type="submit" class="btn btn-primary">{{ lang['addfunds.button'] }}</button>
+              </form>
+            </div>
+          </div>
+        {% endif %}
+        
+        {% if PaytmQR == 2 %}
+        <div class="col-md-6">
+           <div class="well">
+            <div class="">
+             <h1><center>
+                PaytmQR
+    			 </h1></center>
+              <div class="panel-body">
+                <form method="post" action="addfunds">
+                    <center><img width="50%" src="{{ PaytmQRimage }}"></center>
+                    <div class="form-group col-md-12">
+                        <label for="method" class="control-label">Amount</label>
+                        <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="method" class="control-label">Order ID</label>
+                        <p>Enter Transaction/Order ID without spaces. Example - 202010122210100058</p>
+                        <input class="form-control" name="paytmqr_orderid" value="{{ data['paytmqr_orderid'] }}">
+                    </div>
+                    <input type="hidden" class="form-control" name="payment_type" value="14">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+              </div>
+            </div>  
+          </div>
+        </div>
+      {% endif %}
+        
+      </div>
+
+      {% if bankPayment == 2 %}
+    
+    <div class="col-md-8 col-md-offset-2">
+
+          {% if paymentsList %}
+         
+    					
+    					
+    					  <div class="well">
+       <div class="row">
+            <p style="text-align: center;">
+                <span style="font-weight: 700; font-size: 36px;"> {{ lang['addfunds.bank.title'] }} </span>
+              </p>
+              <br>
+                <form method="post" action="addfunds">
+
+                  <div class="form-group col-md-12">
+                    <label for="method" class="control-label">{{ lang['addfunds.bank'] }}</label>
+                    <select class="form-control" name="payment_bank">
+                     {% for bank in bankList %}
+                        <option value="{{ bank['id'] }}" {% if data['payment_bank'] == payment['id'] %} selected {% endif %} >{{ bank['bank_name'] }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="method" class="control-label">{{ lang['addfunds.bank.amount'] }}</label>
+                        <input class="form-control" name="payment_bank_amount" value="{{ data['payment_bank_amount'] }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="method" class="control-label">{{ lang['addfunds.bank.sender'] }}</label>
+                        <input class="form-control" name="payment_gonderen" value="{{ data['payment_gonderen'] }}">
+                    </div>
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary">{{ lang['addfunds.bank.button'] }}</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+   
+
+<div class="accordion basic-accordion" id="accordion" role="tablist"><div class="card"><div class="card-header" role="tab" id="headingOne-3">
+                   <h4 style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(0, 0, 0); margin-top: 25px; margin-bottom: 25px; font-size: 19px; text-align: center;"><span style="font-size: 14px; color: rgb(33, 33, 33); font-family: &quot;Open Sans&quot;, sans-serif;">&nbsp;</span><img src="https://i.imgur.com/SmSotJy.png"></h4>
+                </div>
+                <div id="collapseOne-5" class="collapse" role="tabpanel" aria-labelledby="headingOne-3" data-parent="#accordion" aria-expanded="false" style="height: 0px;">
+                    <div class="card-body">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="well ">    
+            <div class="card" id="addfundsCard">
+              <div class="card-body" id="addfundsBody">
+                <div class="row">
+                  <div class="col-sm-12 addfund-content-txt">
+                      <h3><p style="text-align: center; margin-top: 1em; margin-bottom: 1em; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"></p></h3><h1 style="text-align: left; font-size: 39px; margin-top: 21px; margin-bottom: 10.5px; font-family: Poppins, sans-serif; color: rgb(63, 55, 73);"><font face="Lato, LatoRTL, sans-serif"><span style="font-size: 16px; white-space: pre-wrap;"><b>This is our Bonus Payment System for the First Deposit:</b></span></font></h1><h1 style="text-align: left;"><font face="Lato, LatoRTL, sans-serif" color="#ce0000" style="font-size: 15px;"><span style="font-size: 16px; white-space: pre-wrap;"><b>All   Payment Systems Available!</b></span></font><p style="margin-bottom: 15px; font-size: 14px; color: rgb(63, 55, 73); font-family: Poppins, sans-serif;"></p><p style="margin-top: 1em; margin-bottom: 1em; font-size: 14px; color: rgb(63, 55, 73); font-family: Poppins, sans-serif; text-align: center; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"></p></h1><h1 style="text-align: left; font-size: 39px; margin-top: 21px; margin-bottom: 10.5px; font-family: Poppins, sans-serif; color: rgb(63, 55, 73);"><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif; color: inherit;"><b> </b></span><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif;"><font color="#ff00ff"><i><b> - From $30 to $100</b></i></font></span><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif; color: inherit;"><i><b> </b></i>  -  <b>5%  </b>              </span></h1><h1 style="text-align: left; font-size: 39px; margin-top: 1em; margin-bottom: 1em; font-family: Poppins, sans-serif; line-height: inherit; color: rgb(63, 55, 73); padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline;"><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif;"><font color="#9c00ff"><i><b>- From $100 to $400</b></i></font></span><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif; color: inherit;">   -  <b>6%    </b>     </span></h1><h1 style="text-align: left; font-size: 39px; margin-top: 1em; margin-bottom: 1em; font-family: Poppins, sans-serif; line-height: inherit; color: rgb(63, 55, 73); padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline;"><font color="#0000ff" style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif;"><i><b>- From $400 to $1000</b></i></font><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif;"> -  </span><b style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif;">8% </b><span style="font-size: 16px; white-space: pre-wrap; font-family: Lato, LatoRTL, sans-serif;">        </span></h1><h1><p style="margin-bottom: 15px; font-size: 14px; color: rgb(63, 55, 73); font-family: Poppins, sans-serif;"></p><p style="margin-top: 1em; margin-bottom: 1em; font-size: 14px; color: rgb(63, 55, 73); font-family: Poppins, sans-serif; text-align: center; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"></p><font face="Lato, LatoRTL, sans-serif" style=""><div style="text-align: left;"><font color="#3f3749"><span style="font-size: 16px; white-space: pre-wrap;"><br></span></font></div><span style="font-size: 16px; white-space: pre-wrap;"><div style="text-align: left;"><font color="#ff9c00"><b><i>- From $1000 and more</i></b> </font><font color="#3f3749"> -    Custom (restricted list of systems! Contact our Support)</font></div><font color="#3f3749">
+</font></span></font></h1><h1><font face="Lato, LatoRTL, sans-serif" style="" color="#ce0000"><span style="font-size: 16px; white-space: pre-wrap;"><b style="">Everyday Bonus Payment System:</b></span></font></h1><h1><p><span style="color: rgb(63, 55, 73); font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"> </span><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><font color="#ff0000">     <b>Perfect Money  </b>          </font></span><span style="color: rgb(63, 55, 73); font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;">                             
+</span><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><font color="#ff00ff"><i><b>- From $100 to $299</b></i></font></span><span style="color: rgb(63, 55, 73); font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;">  -<b> 2%</b>                                  
+</span><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><font color="#9c00ff"><i><b>- From $300 to $499</b></i></font></span><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><font color="#3f3749">  -<b> 3%     </b>                  
+</font><b style=""><i style=""><font color="#0000ff">- From $500</font></i></b><font color="#3f3749"> -<b>  4%</b>                                           
+</font></span></p><p><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><font color="#3f3749">        </font><b style=""><font color="#ff0000">Unitpay</font></b><font color="#3f3749">
+</font><b style=""><font color="#ff00ff"><i>- From $100 </i></font><font color="#3f3749"> - 3%</font></b><font color="#3f3749">
+</font><font color="#3f3749">
+ </font></span></p><p><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><font color="#3f3749">    </font><b style=""><font color="#3f3749">   </font><font color="#ff0000">Coinbase Commerce </font><font color="#3f3749">  </font></b><font color="#3f3749">                               </font></span></p><p><span style="font-family: Lato, LatoRTL, sans-serif; font-size: 16px; white-space: pre-wrap;"><b style=""><i style=""><font style="background-color: rgb(255, 255, 255);" color="#ff00ff">- From $100 to $299</font></i><font color="#3f3749">  - 2%  
+</font><font color="#9c00ff">- From $300 to $499</font><font color="#3f3749">  - 3%
+</font><i style=""><font color="#0000ff">- From $500</font></i><font color="#3f3749"> -  4%</font></b><font color="#3f3749">
+                     
+        
+                        </font><b style=""><i style=""><font color="#ff0000">             For alternative payment methods, contact support!</font></i></b></span><br></p></h1><div style="text-align: left;"><font face="Lato, LatoRTL, sans-serif" style="color: rgb(63, 55, 73); font-size: 15px;"><span style="font-size: 16px; white-space: pre-wrap;"><br></span></font></div><p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        </div>
+  </div>
+
+
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    <div class="col-md-8 col-md-offset-2">#}
+
+{#        <div class="well">#}
+{#          <form method="post" action="kupon">#}
+{#            <div class="form-group">#}
+{#              <label for="subject" class="control-label">Coupon Code</label>#}
+{#              <input type="text" class="form-control" id="kuponadi" name="kuponadi">#}
+{#            </div>#}
+{#            <button type="submit" class="btn btn-primary">Use</button>#}
+{#          </form>#}
+{#        </div>#}
+      
+{#      </div>#}
+{#  </div>#}
+{#</div>#}
+
+
+  {% if bankPayment == 2 %}
+    <div class="container">
+        <div class="row">
+         
+    <div class="col-md-8 col-md-offset-2">
+
+
+            <div class="well">
+
+              <p style="text-align: center;">
+                <span style="font-weight: 700; font-size: 36px;">Bank</span><span style="font-size: 36px;"> Account</span>
+              </p>
+
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered table-checkable ">
+                  <thead>
+                    <tr>
+                      <th> Bank Name </th>
+                      <th> Branch Code </th>
+                      <th> Account No </th>
+                      <Th> IBAN </th>
+                      <th> Recipient Name </th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for bank in bankList %}
+                    <tr>
+                      <td>{{ bank['bank_name'] }}</td>
+                      <td>{{ bank['bank_sube'] }}</td>
+                      <td>{{ bank['bank_hesap'] }}</td>
+                      <td><b>{{ bank['bank_iban'] }}</b><br></td>
+                      <td>{{ bank["bank_alici"] }}</td>
+                    </tr>
+                  {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered table-checkable ">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>INFORMATION: </b> Money Transfer / EFT fees deducted while making payment will not be <b> covered by us </b>.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="well ">
+        {{ contentText }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.twig' %}

@@ -1,0 +1,45 @@
+<div id="success-modal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="sa-icon sa-success animate" style="display: block;">
+                    <span class="sa-line sa-tip animateSuccessTip"></span>
+                    <span class="sa-line sa-long animateSuccessLong"></span>
+                    <div class="sa-placeholder"></div>
+                    <div class="sa-fix"></div>
+                </div>
+                <div class="section-title mt-5 mb-2">
+                    <h2 class="text-gradient-02">Yeni Tema Güncellemesi</h2>
+                </div>
+                <p class="mb-5">Yeni Koyu Temamız İle Göz Yormayan Hizmet</p>
+                <button type="button" class="m-btn m-btn-white" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+            //sayfa açıldığında otomatik açılması için
+    		$("#success-modal").modal('show');
+    	});
+</script>
+
+<style>
+
+.modal-content{
+  color: #fff;
+    min-height: 20px;
+    padding: 10px;
+    margin-bottom: 20px;    
+    background: linear-gradient(rgb(45,45,76),rgb(33,33,61));
+    box-shadow: #0000000069;
+    border:0 none;
+    border-radius:15px;
+
+}
+</style>

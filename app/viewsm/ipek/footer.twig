@@ -1,0 +1,64 @@
+  <footer class="bg-blue" style="margin-top: 79.25px;">
+  <div class="wave footer-wave" style="margin-top: -226.429px;">
+    <img src="{{ site["site_logo"] }}">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <span class="logo">
+          {% if site["logo"] %}
+            <img src="{{ site['logo'] }}" alt="" title="">
+          {% else %}
+            {{ site["site_name"] }}
+          {% endif %}
+        </span>
+        <p class="font-italc">{{ site["site_name"] }}, Web 'de sosyal medya pazarlama hizmetlerinin önde gelen satıcısıdır.  Eğer sosyal medya hesapları için ihtiyacınız olan bir şey olsun ya da bir SMM Hizmetleri Bayi, tüm burada bulacaksınız. </p>
+      </div>
+      <div class="col-md-6 text-center-md">
+
+        <div class="footer-support-panel">
+          <h3 class="title">Destek</h3>
+          <ul>
+            <li>
+              <a href="/tickets">
+                <i class="fa fa-comments"></i> Destek Talebi
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-envelope"></i> info@medyadark.com
+              </a>
+            </li>
+             
+          </ul>
+        </div>
+      </div>
+       
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="copyright">
+        © {{ site["site_name"] }} Copyright 2020 - Tüm Hakları Saklıdır.
+        <a class="link" href="/terms">Terms of Service</a>
+      </div>
+         <li class="nav-item topBotomBordersIn">
+            
+      <div class="footer-links" target="_blank">
+          
+      
+      </div>
+    </div>
+
+  </div>
+  </footer>
+  {% for script in scriptList %}
+  <script type="text/javascript" src="{{ script }}"></script>
+  {% endfor %}
+
+  {{ footerCode }}
+
+  <script src="https://www.google.com/recaptcha/api.js?hl=tr"></script>
+
+</body>
+</html>

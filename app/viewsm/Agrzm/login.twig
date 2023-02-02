@@ -1,0 +1,133 @@
+{% include 'header.twig' %}
+
+
+
+
+
+
+<div class="container">
+    <div class="row mt-8 m-mt-3">
+        <div class="col-lg-6 col-md-12 col-xs-12 hidden-xs">
+            
+        <br>
+<img src="https://resimag.com/p1/a645bba861b.png" width="500" height="%100"></div>
+            <br><br>
+
+            <div class="col-lg-5 col-md-12 col-xs-12">
+            
+         <font size="7" font color="#fff">Hoşgeldiniz!</font><br>
+
+        
+        
+
+     
+      {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+      <div class="well saydam">
+        <form  method="post" action="">
+          
+          
+        <div class="loginbox">  
+          
+   <div class="form-group">
+                        <div class="login-label ml-1 pt-3 pl-3">
+                            <i class="sli icon-user" aria-hidden="true"></i>
+            <label for="username" class="control-label">Kulanıcı Adı</label>
+                        </div>
+                        <input type="text" class="form-control login-input" id="username" name="username" placeholder="{{ lang['signin.username'] }}">
+                    </div>
+
+          <div class="form-group">
+                        <div class="login-label ml-1 pt-1 pl-3">
+                                       <label for="password" class="control-label">Şifre</label>
+                          <a href="/resetpassword" class="pull-right">Şifremi Unuttum </a>
+			
+                                                    </div>
+                        <input type="password" class="form-control login-input" id="password" name="password" placeholder="{{ lang['signin.password'] }}">
+            
+                    </div>     </div>    
+      
+         <div class="checkbox">
+                   <input type="checkbox" name="remember" value="1" id="remember">
+              <label for="remember">
+                 Bilgilerimi Hatırla
+              </label>
+                                    
+                              </div>
+
+                       {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}   
+ 
+          <button type="submit" class="btn btn-primary login-btn btn-block"><strong>Giriş Yap</strong></button><br><hr>
+<p class="ucretsizuyelik"> {{ settings['site_name']  }} üyelikleri tamamen ücretsizdir. Size para karşılığı üyelik satmak isteyen şahıslara itibar etmeyiniz! Eğer  {{ settings['site_name']  }} üyeliğiniz yok ise <a href="/signup"> hemen üye olabilirsiniz! </a>
+              <span class="forget-ps">Yeni Hesap Oluştur <a href="/signup">Kayıt Ol</a></span>
+          
+                  </form>
+      </div>     
+      </div>
+      </div>
+
+
+  <br>
+<hr>
+  
+  
+<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">  
+  <ul style="list-style: none;">
+    
+    <center><h1><font color="#e7e6e6">SMM Panel - Sosyal Medya Bayilik Paneli</font></h1></center>
+    
+    
+<br>
+<center><h3><span style="font-weight:300;"> <font color="#e7e6e6">TAKİPCİMEDYASİ.com tamamen otomatik olarak çalışan sosyal medya bayilik panelidir. Sosyal medya ihtiyaçlarınızı kimseye ihtiyacınız olmadan saniyeler içerisinde Türkiye'de ki en uygun fiyatlar ile gerçekleştirebilir, dilerseniz satış yaparak sabit gelir elde edebilirsiniz.</font></span></h3>
+<font color="#e7e6e6">	<li><h4><i class="fa fa-check"></i> Anında bakiye yükleme, %0 komisyon!</h4></li>
+	<li><h4><i class="fa fa-check"></i> Piyasadaki en ucuz, en kaliteli hizmetler!</h4></li>
+	<li><h4><i class="fa fa-check"></i> Piyasadaki en iyi panel desteği!</h4></li>
+	<li><h4><i class="fa fa-check"></i> Panel sahipleri için API Desteği!</h4></li>
+<ul>
+</ul></font></ul>
+  </div> </div>
+</div>
+  </div><center>
+<br><br>
+<hr>
+  
+  
+<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">  
+  <ul style="list-style: none;">
+    
+    <center><h1><font color="#e7e6e6">SMM Panel - Sosyal Medya Bayilik Paneli</font></h1></center>
+    
+    
+<br>
+<center><h3><span style="font-weight:300;"> <font color="#e7e6e6">TAKİPCİMEDYASİ.com Nedir?</font></span></h3>
+<font color="#e7e6e6">
+  <li><h4>
+    <i class="fa fa-check"></i> <a href="https://takipcimedyasi.com" title="en ucuz smm panel">En Ucuz Smm Panel</a></h4></li>
+	<li><h4><i class="fa fa-check"></i> <a href="https://takipcimedyasi.com" title="Sosyal Medya Bayilik paneli">Sosyal Medya Bayilik paneli</a></h4></li>
+	<li><h4><i class="fa fa-check"></i><a href="https://takipcimedyasi.com" title="instagram bayilik paneli">instagram bayilik paneli</a></h4></li>
+	<li><h4><i class="fa fa-check"></i><a href="https://takipcimedyasi.com" title="smm bayilik paneli">smm bayilik paneli</a></h4></li>
+<ul>
+</ul></font></ul>
+  </div> </div>
+</div>
+  </div><center>
+
+
+
+
+
+{% include 'footer.twig' %}

@@ -1,0 +1,96 @@
+{% include 'header.twig' %}
+
+<div class="inner-page">
+  <section>
+    <div class="container">
+      <div class="row ticket-panel">
+        <div class="col">
+
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if success %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+
+       <div class="card bg-white ">
+           <div class="card-header">  
+              <div class="titcket-title card-title">
+              {{ messageList['ticket']['subject'] }} {% if messageList["ticket"]["canmessage"] == 1 %} <span class="badge"> bu talebiniz yönetici tarafından kapanmış</span> {% endif %}
+              </div>
+            </div>
+         <div class="card-body">
+
+              {% if messageList %}
+                {% for message in messageList %}
+                  {% if message["support"] == 1 %}
+                      <div class="row ticket-message-block ticket-message-right justify-content-end">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-11">
+                          <span class="avatar">
+                        
+                        </span>
+                        <div class="alert alert-danger">
+                          <div class="message">{{ message["message"] }}</div>
+                        </div>
+                          <div class="col-md-11">
+                        <div class="info text-right">
+                          <strong>	<i class="fa fa-user-circle"></i> {{ user["username"] }}</strong>
+                          <small class="text-muted">{{ message["time"] }}</small>
+                          <br><br>
+                        </div></div>
+                      </div>
+                      <div class="col-md-1"></div>
+                    </div>
+                  {% elseif message["subject"] %}
+                  {% else %}
+                    <div class="row ticket-message-block ticket-message-left">
+                      <div class="col-md-11">
+                              <span class="avatar">
+                        
+                        </span>
+                        <div class="alert alert-success">
+                          <div class="message">
+                              Sayın {{ user["name"] }}, <br>
+<br>{{ message["message"] }}
+                    <br><br>
+Keyifli alışverişler dileriz! <br>
+Saygılarımızla, {{ site["site_name"] }} Ekibi</div>
+                        </div>
+                          <div class="col-md-11">
+                        <div class="info">
+                          <strong>	<i class="fa fa-user-circle"></i> Destek</strong>
+                          <small class="text-muted">{{ message["time"] }}</small>
+                        </div></div>
+                      </div>
+                      <div class="col-md-1"></div>
+                    </div>
+                  {% endif %}
+
+                {% endfor %}
+              {% endif %}
+            {% if messageList['ticket']['canmessage'] == 2 %}
+              <div class="row">
+                  <div class="col-md-12">
+                    <form method="post" action="tickets/{{ messageList['ticket']['ticket_id'] }}">
+                      <div class="form-group panel-border-top">
+                        <label for="message" class="control-label">Mesajınız</label>
+                        <textarea id="message" rows="5" class="form-control" name="message">{{ data["message"] }}</textarea>
+                      </div>
+                      <button type="submit" class="btn btn-green">Yanıt Ver</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+    </div>
+  </div>
+</div>
+{% include 'footer.twig' %}

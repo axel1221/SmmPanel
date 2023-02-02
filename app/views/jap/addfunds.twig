@@ -1,0 +1,142 @@
+{% include 'header.twig' %}
+<div id="content-wrap">
+<div class="section">
+<div class="container collapse-view">
+    <div class="text-content">
+              <div class="row">
+                <div class="col-6 mb-2">You are currently on:   <strong>Add Funds</strong></div>
+                <div class="col-6 mb-2">Welcome,   <strong>{{ user['username'] }}</strong>! Your balance is <strong>${{ user['balance'] }}</strong></div>
+              </div>
+            </div>
+            <div class="account-info wrapper-box">
+   <div class="button-bar">
+      <a id="tab-add-btn" onclick="payment()" class="btn btn-primary tab-head">ADD FUNDS</a>
+      <a id="tab-history-btn" onclick="detail()" class="btn btn-secondary tab-head ml-2">CHECK HISTORY</a>
+   </div>
+    <div class="row">
+        <div class="row col-lg-12 tab-content" id="tab-add">
+        <div class="col-lg-12">
+    
+    <div>
+
+        {% if error %}
+          <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ errorText }}
+          </div>
+        {% endif %}
+        {% if success %}
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ successText }}
+          </div>
+        {% endif %}
+      </div>
+
+ 
+    <div class="col-md-12 col-md-offset-2">
+
+        {% if paymentsList %}
+          <div class="well">
+      
+              <form method="post" action="addfunds">
+
+                <div class="form-group">
+                  <label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+                  <select class="form-control" id="payment_method" name="payment_type">
+                   {% for payment in paymentsList %}
+                      <option value="{{ payment['id'] }}" {% if data['payment_type'] == payment['id'] %} selected {% endif %} >{{ payment['method_name'] }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                  <div class="form-group">
+                      <label for="method" class="control-label">{{ lang['addfunds.amount'] }}</label>
+                      <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}">
+                  </div>
+
+                <button type="submit" class="btn btn-primary">{{ lang['addfunds.button'] }}</button>
+              </form>
+    
+          </div>
+        {% endif %}
+      </div>
+      </div>
+      </div>
+      
+      <div class="col-lg-12 tab-content" id="tab-history" style="display: none;">
+      <div>
+        <div>
+          
+          <div class="">
+              <div class="table-responsive custom-table">
+            <table class="table table-striped ">
+              <thead>
+            <tr>
+              <th>#</th>
+              <th>Amount</th>
+              <th class="width-40">Method</th>
+              <th>Date</th>
+              <th class="nowrap">Transaction ID</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for transaction in transactions %}
+              <tr>
+                <td>{{ transaction['payment_id'] }}</td>
+                <td>{{ transaction['payment_amount'] }}</td>
+                <td class="width-40">{{ transaction['method_name'] }}</td>
+                <td>{{ transaction['payment_create_date'] }}</td>
+                <td class="nowrap">{{ transaction['payment_extra'] }}</td>
+                
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+      
+  </div>
+  
+  </div>
+
+</div>
+
+      
+  </div>
+  </div>
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    <div class="col-md-8 col-md-offset-2">#}
+{#      <div class="well ">#}
+{#        {{ contentText }}#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+<script>
+    function detail(){
+        document.getElementById('tab-add').style.display = 'none';
+        document.getElementById('tab-add-btn').className = 'btn btn-secondary tab-head';
+        document.getElementById('tab-history').style.display = 'block';
+        document.getElementById('tab-history-btn').className = 'btn btn-primary tab-head ml-2';
+    }
+    
+    function payment(){
+        document.getElementById('tab-history').style.display = 'none';
+        document.getElementById('tab-history-btn').className = 'btn btn-secondary tab-head ml-2';
+        document.getElementById('tab-add').style.display = 'block';
+        document.getElementById('tab-add-btn').className = 'btn btn-primary tab-head';
+    }
+</script>
+
+{% include 'footer.twig' %}

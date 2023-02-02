@@ -1,0 +1,2121 @@
+{% include 'header.twig' %}
+<div id="content-wrap">
+<div class="section">
+<div class="container collapse-view">
+    <div class="text-content">
+              <div class="row">
+                <div class="col-6 mb-2">You are currently on:   <strong>API Details</strong></div>
+                <div class="col-6 mb-2">Welcome,   <strong>{{ user['username'] }}</strong>! Your balance is <strong>{% if settings['site_currency'] == "TRY" %}{{ "&#8378;" }}
+                {% elseif settings['site_currency'] == "USD" %}{{ "&#36;" }}
+                {% else %}{{ "₹" }}
+                {% endif %}{{ user['balance'] }}</strong></div>
+              </div>
+            </div>   
+    <div class="api-details">
+   <h5><strong>API</strong> DETAILS</h5>
+   <div class="content">
+      <div class="row">
+        <div class="col-sm-12">
+          <h6>API URL</h6>
+          <p>{{ site["url"] }}/api/v2</p>
+        </div>
+        <div class="col-sm-12">
+          <h6>API Key</h6>
+          <p>
+            {{ user["apikey"] }}
+         </p>
+        </div>
+        <div class="col-sm-3">
+          <h6>HTTP Method</h6>
+          <p>POST</p>
+        </div>
+        <div class="col-sm-3">
+          <h6>Response format</h6>
+          <p>JSON</p>
+        </div>
+      </div>
+   </div>
+</div>
+     <br>
+     <div class="api-details">
+    <h5><strong>Service list</strong></h5>
+          <div class="content">
+        <div class="row">
+                      <div class="col-sm-3">
+              <h6>key</h6>
+              <p>Your API key</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>action</h6>
+              <p>services</p>
+            </div>
+                  </div>
+      </div>
+      </div>
+   
+  <div class="api-code">
+    <pre style="color: white;">[
+    {
+        "service": 1,
+        "name": "Followers",
+        "type": "Default",
+        "category": "First Category",
+        "rate": "0.90",
+        "min": "50",
+        "max": "10000"
+    },
+    {
+        "service": 2,
+        "name": "Comments",
+        "type": "Custom Comments",
+        "category": "Second Category",
+        "rate": "8",
+        "min": "10",
+        "max": "1500"
+    }
+]</pre>
+  </div>
+  <br>
+  <div class="api-details">
+    <h5><strong>Add order</strong></h5>
+                  <form class="form-inline" style="margin-left: 15px; margin-top: 15px;">
+          <div class="form-group">
+            <select class="form-control input-sm" id="service_type">
+                              <option value="0">Default</option>
+                              <option value="10">Package</option>
+                              <option value="2">Custom Comments</option>
+                              <option value="4">Mentions Custom List</option>
+                              <option value="6">Mentions Hashtag</option>
+                              <option value="7">Mentions User Followers</option>
+                              <option value="14">Custom Comments Package</option>
+                              <option value="15">Comment Likes</option>
+                              <option value="17">Poll</option>
+                              <option value="18">Comment Replies</option>
+                              <option value="100">Subscriptions</option>
+                          </select>
+          </div>
+        </form>
+            
+            <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_0" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>runs (optional)</h6>
+                  <p>Runs to deliver</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>interval (optional)</h6>
+                  <p>Interval in minutes</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_10" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_10" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_10" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_10" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_2" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_2" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_2" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_2" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_2" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_4" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>usernames</h6>
+                  <p>Usernames list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_4" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>usernames</h6>
+                  <p>Usernames list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_4" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>usernames</h6>
+                  <p>Usernames list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_4" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>usernames</h6>
+                  <p>Usernames list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_4" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>usernames</h6>
+                  <p>Usernames list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_6" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>hashtag</h6>
+                  <p>Hashtag to scrape usernames from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_6" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>hashtag</h6>
+                  <p>Hashtag to scrape usernames from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_6" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>hashtag</h6>
+                  <p>Hashtag to scrape usernames from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_6" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>hashtag</h6>
+                  <p>Hashtag to scrape usernames from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_6" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>hashtag</h6>
+                  <p>Hashtag to scrape usernames from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_6" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>hashtag</h6>
+                  <p>Hashtag to scrape usernames from</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_7" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>URL to scrape followers from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_7" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>URL to scrape followers from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_7" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>URL to scrape followers from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_7" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>URL to scrape followers from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_7" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>URL to scrape followers from</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_7" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>URL to scrape followers from</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_100" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>min</h6>
+                  <p>Quantity min</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>max</h6>
+                  <p>Quantity max</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>posts</h6>
+                  <p>New posts count</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>delay</h6>
+                  <p>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>expiry (optional)</h6>
+                  <p>Expiry date. Format d/m/Y</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_14" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_14" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_14" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_14" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_14" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_15" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username of the comment owner</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_15" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username of the comment owner</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_15" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username of the comment owner</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_15" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username of the comment owner</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_15" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username of the comment owner</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_15" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username of the comment owner</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_17" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>answer_number</h6>
+                  <p>Answer number of the poll</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_17" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>answer_number</h6>
+                  <p>Answer number of the poll</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_17" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>answer_number</h6>
+                  <p>Answer number of the poll</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_17" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>answer_number</h6>
+                  <p>Answer number of the poll</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_17" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>answer_number</h6>
+                  <p>Answer number of the poll</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_17" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>quantity</h6>
+                  <p>Needed quantity</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>answer_number</h6>
+                  <p>Answer number of the poll</p>
+                </div>
+                          </div>
+          </div>
+                                <div id="type_18" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_18" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_18" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_18" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_18" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                  <div id="type_18" class="content" style="display:none;">
+            <div class="row">
+                              <div class="col-sm-3">
+                  <h6>key</h6>
+                  <p>Your API key</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>action</h6>
+                  <p>add</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>service</h6>
+                  <p>Service ID</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>link</h6>
+                  <p>Link to page</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>username</h6>
+                  <p>Username</p>
+                </div>
+                              <div class="col-sm-3">
+                  <h6>comments</h6>
+                  <p>Comments list separated by \r\n or \n</p>
+                </div>
+                          </div>
+          </div>
+                    </div>
+  <div class="api-code">
+    <pre style="color: white;">{
+    "order": 23501
+}</pre>
+  </div>
+  <br>
+  <div class="api-details">
+    <h5><strong>Order status</strong></h5>
+          <div class="content">
+        <div class="row">
+                      <div class="col-sm-3">
+              <h6>key</h6>
+              <p>Your API key</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>action</h6>
+              <p>status</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>order</h6>
+              <p>Order ID</p>
+            </div>
+                  </div>
+      </div>
+      </div>
+  <div class="api-code">
+    <pre style="color: white;">{
+    "charge": "0.27819",
+    "start_count": "3572",
+    "status": "Partial",
+    "remains": "157",
+    "currency": "USD"
+}</pre>
+  </div>
+  <br>
+  <div class="api-details">
+    <h5><strong>Multiple orders status</strong></h5>
+          <div class="content">
+        <div class="row">
+                      <div class="col-sm-3">
+              <h6>key</h6>
+              <p>Your API key</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>action</h6>
+              <p>status</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>orders</h6>
+              <p>Order IDs separated by comma</p>
+            </div>
+                  </div>
+      </div>
+      </div>
+  <div class="api-code">
+    <pre style="color: white;">{
+    "1": {
+        "charge": "0.27819",
+        "start_count": "3572",
+        "status": "Partial",
+        "remains": "157",
+        "currency": "USD"
+    },
+    "10": {
+        "error": "Incorrect order ID"
+    },
+    "100": {
+        "charge": "1.44219",
+        "start_count": "234",
+        "status": "In progress",
+        "remains": "10",
+        "currency": "USD"
+    }
+}</pre>
+  </div>
+  <br>
+  <div class="api-details">
+    <h5><strong>Create refill</strong></h5>
+          <div class="content">
+        <div class="row">
+                      <div class="col-sm-3">
+              <h6>key</h6>
+              <p>Your API key</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>action</h6>
+              <p>refill</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>order</h6>
+              <p>Order ID</p>
+            </div>
+                  </div>
+      </div>
+      </div>
+  <div class="api-code">
+    <pre style="color: white;">{
+    "refill": "1"
+}</pre>
+  </div>
+  <br>
+  <div class="api-details">
+    <h5><strong>Get refill status</strong></h5>
+          <div class="content">
+        <div class="row">
+                      <div class="col-sm-3">
+              <h6>key</h6>
+              <p>Your API key</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>action</h6>
+              <p>refill_status</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>refill</h6>
+              <p>Refill ID</p>
+            </div>
+                  </div>
+      </div>
+      </div>
+  <div class="api-code">
+    <pre style="color: white;">{
+    "status": "Completed"
+}</pre>
+  </div>
+  <br>
+  <div class="api-details">
+    <h5><strong>User balance</strong></h5>
+          <div class="content">
+        <div class="row">
+                      <div class="col-sm-3">
+              <h6>key</h6>
+              <p>Your API key</p>
+            </div>
+                      <div class="col-sm-3">
+              <h6>action</h6>
+              <p>balance</p>
+            </div>
+                  </div>
+      </div>
+      </div>
+  <div class="api-code">
+    <pre style="color: white;">{
+    "balance": "100.84292",
+    "currency": "USD"
+}</pre>
+  </div>
+
+          </div>
+        </div>
+      </div>
+      
+
+            
+   </div>
+</div>
+</div>
+{% include 'footer.twig' %}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="{{ site['url'] }}/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="keywords" content="{{ site['keywords'] }}">
+  <meta name="description" content="{{ site['description'] }}">
+  {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+  {% endif %}
+
+
+
+<style type="text/css">
+.alert-success {
+    color: #155724;
+    background: #d4edda;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.close-menu { background:url(images/logo.png) no-repeat 15px center; background-size:75px 31px;}
+.fade:not(.show) { opacity: 1; }
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-backdrop {
+  opacity: 0.5 !important;
+}
+.hidden {
+  display: none;
+}
+</style>
+  
+    {#<link rel="stylesheet" type="text/css" href="/public/styles/{{ settings['site_theme_alt'] }}.css">#}
+    {#{% for style in styleList %}#}
+    {#  <link rel="stylesheet" type="text/css" href="{{ style }}">#}
+    {#{% endfor %}#}
+    
+    {{ headerCode }}
+
+  </head>
+<body>
+{% if user['auth'] %}
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&display=swap" rel="stylesheet"> 
+<link href="https://yourperfectapp.com/jap4/webfonts/stylesheet.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/all.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/stellarnav.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/bootstrap.css" rel="stylesheet">
+<link href="{{ site['url'] }}/public/jap/admin-style.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/admin-responsive.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/toasts.css" rel="stylesheet">
+
+<script src="https://yourperfectapp.com/jap4/js/jquery-min.js" ></script>
+<script src="https://yourperfectapp.com/jap4/js/popper.min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/bootstrap.min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/ie-emulation-modes-warning.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/custom.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/stellarnav.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/jquery.fancybox.min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/accordion.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/owl.carousel.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/jquery.matchHeight-min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/toasts.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+  <script type="text/javascript" >
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/flpbonhmkq9tsp29.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/a4kdpfesx15uh7ae.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/596z6ya3isgxcipy.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/o8hbzqge3i5h5tdk.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/wnzsoolloslhfumj.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/02prycowo2wmaxbn.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/f80cf3xnygm7qhcq.js">
+      </script>
+       <script type="text/javascript" >
+     window.modules.layouts = {"auth":1};   </script>
+  <script type="text/javascript" >
+     window.modules.siteHistory = [];   </script>
+
+<style>
+    .alert-success {
+    color: #155724;
+    background: #d4edda;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+</style>
+
+<div id="page-container">
+
+      
+      <header class="header">
+      <div class="container collapse-view clearfix">
+        <div class="logo">
+          <a href="/">
+              {% if site["logo"] %}
+          <img src="{{ site['logo'] }}" alt="" title="">
+        {% else %}
+          {{ site["site_name"] }}
+        {% endif %}
+                      </a>
+        </div>
+
+        <nav class="stellarnav navbar-collapsed-before light right desktop"><a href="#" class="menu-toggle"><span class="bars"><span></span><span></span><span></span></span> </a>
+          <ul><a href="#" class="close-menu full"><span class="icon-close"></span></a>
+            <li>
+                <a href="/">New Order</a>
+              <li>
+                <a href="/orders">Orders</a>
+              </li>
+              <li>
+                <a href="/addfunds">Add funds</a>
+              </li>
+              <li>
+                <a href="/tickets">Tickets</a>
+              </li>
+              <li>
+                <a href="/services">Services</a>
+              </li>
+              <li>
+                <a href="/child-panels">Child Panels</a>
+              </li>
+                      </ul>
+        </nav>
+
+                  <div class="header-right">
+                      
+            <ul>
+              <li class="setting">
+                <a href="#" role="button" id="dropdownSetting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="setting"><span class="sr-only">Setting</span></a>
+                <div class="dropdown-menu setting" aria-labelledby="dropdownSetting">
+                  <a class="dropdown-item" href="/account">Account</a>
+                  <a class="dropdown-item" href="/api">API</a>
+                  <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+              </li>
+              <li class="atom"><a href="javascript:void(0);" class="theme-toggle atom"><span class="sr-only">Atom</span></a></li>
+
+
+              
+            </ul>
+          </div>
+              </div>
+    </header>
+{% else %}
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&display=swap" rel="stylesheet"> 
+<link href="https://yourperfectapp.com/jap4/webfonts/stylesheet.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/all.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/stellarnav.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/bootstrap.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/style.css" rel="stylesheet">
+<link href="https://yourperfectapp.com/jap4/css/responsive.css" rel="stylesheet">
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://yourperfectapp.com/jap4/images/apple-touch-icon-144-precomposed.png">
+
+<!--
+  <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/global/jd74r1iuic3ibu19.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/global/t8wi56w4de132qk6.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/libs/bootstrap-datetimepicker/4.17.47/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.mypanel.link/css/font-awesome/css/all.min.css">
+-->
+
+<script src="https://yourperfectapp.com/jap4/js/jquery-min.js" ></script>
+<script src="https://yourperfectapp.com/jap4/js/popper.min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/bootstrap.min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/ie-emulation-modes-warning.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/custom.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/stellarnav.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/jquery.fancybox.min.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/accordion.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/owl.carousel.js"></script>
+<script src="https://yourperfectapp.com/jap4/js/jquery.matchHeight-min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript" src="https://app.getbeamer.com/js/beamer-embed.js" defer="defer"></script>
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+  <script type="text/javascript" >
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/flpbonhmkq9tsp29.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/a4kdpfesx15uh7ae.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/596z6ya3isgxcipy.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/o8hbzqge3i5h5tdk.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/wnzsoolloslhfumj.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/02prycowo2wmaxbn.js">
+      </script>
+  <script type="text/javascript" src="https://cdn.mypanel.link/global/f80cf3xnygm7qhcq.js">
+      </script>
+  <script type="text/javascript" >
+     window.modules.layouts = {"auth":0};   </script>
+  <script type="text/javascript" >
+     window.modules.signin = [];   </script>
+     
+ <header class="header">
+      <div class="container collapse-view clearfix ">
+        <div class="logo">
+          <a href="/">
+        {% if site["logo"] %}
+          <img src="{{ site['logo'] }}" alt="" title="">
+        {% else %}
+          {{ site["site_name"] }}
+        {% endif %}
+                      </a>
+        </div>
+
+        <nav class="stellarnav">
+          <ul>
+                          <li class="current-menu-item" >
+                <a href="/">Sign In</a>
+              </li>
+              <li>
+                <a href="/services">Services</a>
+              </li>
+              <li>
+                <a href="/api">API</a>
+              </li>
+                      </ul>
+        </nav>
+
+              </div>
+    </header>
+
+{% endif %}

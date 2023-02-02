@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <base href="{{ site['url'] }}/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+  {% endif %}
+  
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    {% for style in styleList %}
+      <link rel="stylesheet" type="text/css" href="{{ style }}">
+    {% endfor %}
+
+    {{ headerCode }}
+
+  </head>
+<body>
+    
+{% if user['auth'] %}
+<header class="bg-blue">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg ">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <i class="fas fa-stream"></i>
+              </span>
+            </button>
+        
+            <a class="navbar-brand" href="{{ site['url'] }}">
+          {% if site["logo"] %}
+            <img src="{{ site['logo'] }}" alt="" title="">
+          {% else %}
+            {{ site["site_name"] }}
+          {% endif %}
+        </a>
+           
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+            
+              <li class="nav-item topBotomBordersIn "><a href="/" class="nav-link">  
+                <i class="fa fa-cart-plus"></i> Yeni Sipariş</a></li>
+              <li class="nav-item topBotomBordersIn dropdown">
+                      <a class="nav-link dropdown-toggle" href="/orders" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="supportMenu">
+                     <i class="	fa fa-shopping-basket"></i> Siparişlerim
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="supportMenu">
+                        	<a class="dropdown-item" href="/orders">Sipariş Geçmişi</a>	<a class="dropdown-item" href="/dripfeeds">Drip-feed</a>
+                        		<a class="dropdown-item" href="/subscriptions">Abonelikler</a>
+                        	           	</div>
+                    </li>
+              <li class="nav-item topBotomBordersIn"><a href="/services" class="nav-link">  
+             <i class="fa fa-tasks"></i> Servisler
+        
+       </a></li>
+              <li class="nav-item topBotomBordersIn"><a href="/addfunds" class="nav-link">  
+                     <i class="fa fa-credit-card"></i>  Bakiye Yükle  
+        
+       </a></li>
+              <li class="nav-item topBotomBordersIn dropdown">
+                      <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="supportMenu">
+                     <i class="	fa fa-comments-o"></i>    Destek                       </a>
+                      <div class="dropdown-menu" aria-labelledby="supportMenu">
+                           	                        		<a class="dropdown-item" href="/faq">SSS</a>
+
+                        <a class="dropdown-item" href="/tickets">Destek Talebi </a>
+
+            	                        	                                                </div>
+                    </li>
+              <li class="nav-item topBotomBordersIn"><a href="/api" class="nav-link">  
+            <i class="	fa fa-cog"></i> API
+        
+       </a></li>
+              
+            </ul>
+           </div>
+        	<div class="navbar-right">
+              <a href="/addfunds" class="badge badge-green float-left hide-lg"><i class="fa fa-shopping-cart" aria-hidden="true"></i> | {{ user['balance'] }}<i class="fa fa-try"></i> </a>
+              <div class="dropdown float-left"> 
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle" id="myAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <i class="fa fa-user-circle"></i>
+              </a>
+                <div class="dropdown-menu" aria-labelledby="myAccount">
+                       
+                  <a href="/account"  class="dropdown-item" >Hesabım</a>
+                  <a href="/logout" class="dropdown-item">Çıkış Yap</a>
+                </div>
+              </div>
+        	</div>
+        
+      </nav>
+    </div>
+  </header>
+  
+{% else %}
+<style>
+    
+    .help-block{
+    
+        color: #a366ff;
+        
+    }
+</style>
+<header  class="bg-blue" >
+   <div class="container">
+    <nav class="navbar navbar-expand-lg ">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+          <i class="fa fa-bars"></i>
+        </span>
+      </button>
+        <a class="navbar-brand" href="{{ site['url'] }}">
+        {% if site["logo"] %}
+          <img src="{{ site['logo'] }}" alt="" title="">
+        {% else %}
+          {{ site["site_name"] }}
+        {% endif %}
+      </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+         
+          <li class="nav-item topBotomBordersIn">
+          <a  class="nav-link" href="/">Giriş Yap</a>
+        </li>
+        {% if servicesPage %}
+          <li class="nav-item topBotomBordersIn">
+          <a class="nav-link" href="services">Servis Listesi</a>
+        </li>
+        {% endif %}
+            <li class="nav-item topBotomBordersIn">
+              <a class="nav-link" href="/faq">
+                SSS
+              </a>
+            </li>
+            <li class="nav-item topBotomBordersIn">
+              <a class="nav-link" href="/api">
+                API 
+              </a>
+            </li>
+            </ul>
+            </div>
+        <div class="navbar-right">
+        <a class="btn btn-green hvr-bob" href="signup">Üye Ol</a>
+      </div>
+      </nav>
+    </div>
+  </header>
+{% endif %}

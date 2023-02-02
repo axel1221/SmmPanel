@@ -1,0 +1,140 @@
+{% include 'header.twig' %}
+ <div id="content-wrap">
+        <div class="section">
+          <div class="container collapse-view ">
+            <div class="text-content">
+              <div class="row">
+                <div class="col-6 mb-2">You are currently on:   <strong>Orders</strong></div>
+                 <div class="col-6 mb-2">Welcome,   <strong>{{ user['username'] }}</strong>! Your balance is <strong>{% if settings['site_currency'] == "TRY" %}{{ "&#8378;" }}
+                {% elseif settings['site_currency'] == "USD" %}{{ "&#36;" }}
+                {% else %}{{ "₹" }}
+                {% endif %}{{ user['balance'] }}</strong></div>
+              </div>
+            </div>
+<div class="">
+    {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% elseif success %}
+        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+  <div class="fund-history-table">
+    <div>
+       <div class="order-history-head clearfix">
+    <form action="/orders" method="get" id="history-search">
+      <div class="search-form">
+        <input type="text" name="search" value="" placeholder="Search orders" class="form-control">
+      </div>
+    </form>
+    
+    <ul>
+      <li class="active"><a href="/orders">All</a></li>
+      <li ><a href="/orders/pending">Pending</a></li>
+      <li ><a href="/orders/inprogress">In progress</a></li>
+      <li ><a href="/orders/completed">Completed</a></li>
+      <li ><a href="/orders/partial">Partial</a></li>
+      <li ><a href="/orders/processing">Processing</a></li>
+      <li ><a href="/orders/canceled">Canceled</a></li>
+    </ul>
+  </div>
+      <div class="table-responsive custom-table">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th>{{ lang['orders.id'] }}</th>
+              <th>{{ lang['orders.date'] }}</th>
+              <th class="width-40">{{ lang['orders.link'] }}</th>
+              <th>{{ lang['orders.charge'] }}</th>
+              <th class="nowrap">{{ lang['orders.start.count'] }}</th>
+              <th>{{ lang['orders.quantity'] }}</th>
+              <th>{{ lang['orders.service'] }}</th>
+              <th>{{ lang['orders.status'] }}</th>
+              <th>{{ lang['orders.remains'] }}</th>
+              <th>Refill</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for order in orders %}
+              <tr>
+                <td>{{ order['id'] }}</td>
+                <td>{{ order['date'] }}</td>
+                <td class="width-40">{{ order['link'] }}</td>
+                <td>{{ order['charge'] }}</td>
+                <td class="nowrap">{{ order['start_count'] }}</td>
+                <td>{{ order['quantity'] }}</td>
+                <td>{{ order['service'] }}</td>
+                <td>{{ order['status'] }}</td>
+                <td>{{ order['remains'] }}</td>
+                {% if order['is_refill'] == "true" %}
+                {% if order['status'] == "Completed" %}
+                    <td><form method="POST"><input name="order_id" type="hidden" value="{{ order['id'] }}"><button class="btn btn-success" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></form></td>
+                {% else %}
+                    <td><button class="btn btn-secondary">Order not completed</button></td>
+                {% endif %}
+                {% else %}
+                <td><button class="btn btn-danger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Non-Refillable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a href="orders/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% include 'footer.twig' %}

@@ -1,0 +1,45 @@
+{% include 'header.twig' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+      
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% elseif success %}
+        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+
+      
+        <div class="well">
+          <form method="post" action="kupon">
+            <div class="form-group">
+              <label for="subject" class="control-label">Kupon Adı</label>
+              <input type="text" class="form-control" id="kuponadi" name="kuponadi">
+            </div>
+            <button type="submit" class="btn btn-primary">Kullan</button>
+          </form>
+        </div>
+      
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="well ">
+        {{ contentText }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.twig' %}

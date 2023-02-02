@@ -1,0 +1,289 @@
+ <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <base href="{{ site['url'] }}/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="keywords" content="{{ site['keywords'] }}">
+  <meta name="description" content="{{ site['description'] }}">
+  {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+  {% endif %}
+  
+  {{ headerCode }}
+  
+    <script src="https://kit.fontawesome.com/60c6697066.js"></script>
+    <link href="../public/dark/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../public/dark/assets/css/styles.css" rel="stylesheet">
+    <link href="../public/dark/assets/css/default.css" rel="stylesheet" id="color_theme">
+
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar header-nav fixed-top navbar-expand-lg">
+            <div class="container">
+                <!-- Brand -->
+                <a class="navbar-brand" href="">{{ settings['site_name']  }}</a>
+                <!-- / -->
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+                <!-- / -->
+
+                <!-- Top Menu -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li><a class="nav-link" href="signin">Giris Yap</a></li>
+                        <li><a class="nav-link" href="signup">Kayıt Ol</a></li>
+                        <li><a class="nav-link" href="services">Fiyat Listesi</a></li>
+                        <li><a class="nav-link" href="terms">Kullanıcı Sözleşmesi</a></li>
+                        <li><a class="nav-link" href="api">API</a></li>
+
+                    </ul>
+                </div>
+                <!-- / -->
+
+            </div>
+            <!-- Container -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!-- Header End -->
+
+    <!-- Main Start -->
+    <main>
+
+        <!-- Home Banner Start -->
+        <section id="home" class="home-banner gray-bg">
+            <div id="particles_js" class="particles-js-canvas-el"></div>
+            <div class="container">
+                <div class="row p-100px-t justify-content-center">
+                    <div class="col-md-10 col-lg-8 text-center p-60px-tb sm-p-30px-tb">
+                        <div class="home-text-center">
+                            <h1 class="font-alt">Türkiye’nin En Kaliteli<br>Sosyal Medya Paneli</h1>
+                            <div style="display:none;" class="alert alert-danger"> Sorunlar Düzeltilmiştir. </div>
+                            <div class="app-btn-set">
+                                <button type="button" class="m-btn m-btn-white" data-toggle="modal" data-target="#giris">Giris Yap</button>
+                                <button type="button" class="m-btn m-btn-white" data-toggle="modal" data-target="#kayit">Kayıt Ol</button>
+                                <p></p>
+
+
+                            </div>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gray-bg">
+            <div class="container">
+                <div class="row justify-content-center m-45px-b md-m-25px-b">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="section-title">
+                            <h2 class="theme-after-bg">Neden <span class="theme-color">{{ settings['site_name']  }}</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="abox">
+                            <div class="icon">
+                                <i class="fa fa-lock theme-color"></i>
+                            </div>
+                            <h3 class="font-alt">Güvenli Ödeme</h3>
+                            <p>Online ödeme sayesinde dilediğiniz zaman kendinize bakiye yükleyip harcayabilirsiniz.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="abox">
+                            <div class="icon">
+                                <i class="fa fa-clock theme-color"></i>
+                            </div>
+                            <h3 class="font-alt">Abonelik, Dripfeed</h3>
+                            <p>Dripfeed özelliğimiz Sayesinde birçok servisimi Otomatik olarak kullanabilirsiniz </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="abox">
+                            <div class="icon">
+                                <i class="fa fa-try theme-color"></i>
+                            </div>
+                            <h3 class="font-alt">Ucuz Servisler</h3>
+                            <p>Fiyatı 0,50 Kuruş'dan başlıyan instagram servisleri sadece bizde</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gray-bg">
+            <div class="container container-large">
+                <div class="row align-items-center full-screen p-100px-tb sm-p-30px-b">
+                    <div class="col-lg-5 p-50px-t sm-p-0px-t sm-p-30px-b">
+                        <h5>Smm Panel</h5>
+                        <h1>Ucuz Smm Panel</h1>
+                        <h6>Ucuz Smm Panel {{ settings['site_name']  }} fiyatlarda gayet uygundur. Hem ucuz hem kaliteli ! Bizden İyisi Yok. Ucuz Sosyal Medya Paneli {{ settings['site_name']  }}.</h6>
+                        <div class="btn-bar">
+                            <a class="btn btn-theme" href="signin" title="Hemen Giriş Yap">Hemen Giriş Yap</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 right-img md-m-30px-t">
+                        <img src="../img/turkpanelim2.png" title="Türkiyede Ucuz Smm Panel" alt="Ucuz Smm Panel">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section gray-bg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 order-md-first order-last sm-p-30px-t">
+                        <img src="../img/turkpanelim3.png" title="Smm Bayilik Paneli" alt="Smm Bayilik Paneliniz.">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-box-02 p-50px-l md-p-0px-l">
+                            <div class="feature-content">
+                                <h2>Smm Bayilik Paneli</h2>
+                                <h6>Smm Bayilik Paneli Olarak hizmet veren {{ settings['site_name']  }} uzun yıllar sosyal medya ' da takipçi , izlenme , beğeni gibi bir çok servisi güvenle ve kaliteyle satmaktadır.</h6>
+                                <h6>Smm Bayilik Paneli denilince akla ilk gelen olma yolunda günden güne ilerliyoruz. Tüm bunları değerli üyelerimize borçluyuz. Smm Bayilik Paneli olarak gururla hizmet vermekteyiz.</h6>
+                                <div class="btn-bar">
+                                  <a class="btn btn-theme" href="signin" title="Hemen Giriş Yap">Hemen Giriş Yap</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section gray-bg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="feature-box-02 p-50px-r md-p-0px-r">
+                            <div class="feature-content">
+                                <h2>En ucuz sosyal medya paneli</h2>
+                                <h6>En ucuz sosyal medya paneli {{ settings['site_name']  }}. Yalnış duymadınız Türkiye Sosyal Medya Paneli olarak en ucuz ve en iyi panel turkpanelim. Bizden iyisi yok demiyoruz. Bizden kalite ve ucuzu yok diyoruz !</h6>
+                                <h6>turkpanelim Neden En ucuz sosyal medya paneli dir ? Bizim için her zaman müşteri memnuniyeti ve kalite hep bir adım öndedir.</h6>
+                                <div class="btn-bar">
+                                    <a class="btn btn-theme" href="https://turkpanelim.com/giris" title="Hemen Giriş Yap">Hemen Giriş Yap</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 sm-m-30px-t">
+                        <img src="../img/turkpanelim6.png" title="Türkiyenin En ucuz sosyal medya paneli" alt="Türkiyenin En ucuz sosyal medya paneliyiz.">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="testimonial" class="section gray-bg">
+            <div class="container">
+                <div class="abox">
+                    <div class="row m-45px-b md-m-25px-b justify-content-center">
+                        <div class="col-md-10 col-lg-8">
+                            <div class="section-title text-center">
+                                <h6 class="theme-2nd-color">Bilgilendirme</h6>
+                                <h2 class="theme-after">{{ settings['site_name']  }} ne diyor?</h2>
+                                <h6>{{ settings['site_name']  }} sosyal medya paneli yıllardır sosyal medyada ucuz smm panel olmuştur. Takipçi , izlenme , beğenimi istiyorsunu ? Hemen üye ol ve promosyonları kaçırma !</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonial" class="section gray-bg">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">Müşteri Yorumları </h2>
+                    <p class="text-center" style="color:#c5c5c5">Bazı Müşterilerin Hizmetlerimiz Hakkında Yorumları.</p>
+                </div>
+                <div class="row people">
+                    <div class="col-md-6 col-lg-4 item">
+                        <div class="abox">
+                            <center><img class="rounded-circle" src="../img/turkpanelimprofil.png" alt="" title="" width="%100" height="100">
+                                <p>
+                                    <h3 class="name">Burak Can</h3>
+                                    <p class="description">Hizmetleri Oldukça Kaliteli Uzun Zamandır Kullanıyorum Tavsiye ederim. </p>
+                                    <p class="title">R10.net</p>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <div class="abox">
+                            <center><img class="rounded-circle" src="../img/turkpanelimprofil2.png" alt="" title="" width="%100" height="100">
+                                <p>
+                                    <h3 class="name">Burak Demir</h3>
+                                    <p class="description">Kullanmaya Başlamadan Önce Önyargılıydım Şimdi Tamamen Güveniyorum</p>
+                                    <p class="title">Facebook</p>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <div class="abox">
+                            <center><img class="rounded-circle" src="../img/turkpanelimprofil3.png" alt="" title="" width="%100" height="100">
+                                <p>
+                                    <h3 class="name">Hüseyin Avcı</h3>
+                                    <p class="description">Uzun Süredir Kullanıyorum Oldukça Kaliteli Ve Hızlı Servislere Sahip </p>
+                                    <p class="title">virgül.net</p>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 sm-m-15px-tb md-m-30px-b">
+
+                    </div>
+                    <!-- col -->
+
+
+                </div>
+                <div class="col-12">
+
+                    <center style="color:white;"><b><i class="fa fa-cog"></i> Tüm genel sorun için detay : </b> <a style="color:white;" href="mailto:mail.com">mail</a> | telefon</center>
+                </div>
+                <div class="footer-copy">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Siteadi.com © Copyright 2019 Tüm Hakları Saklıdır</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    
+    {{ footerCode }}
+
+    {% include 'lightbox.twig' %} {% include 'giris.twig' %}
+
+    <script src="/cdn-cgi/scripts/5c5dd728/cloudflare-email-decode.min.js" data-cfasync="false"></script>
+    <script src="../public/dark/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="../public/dark/assets/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="../public/dark/assets/js/popper.min.js"></script>
+    <script src="../public/dark/assets/js/bootstrap.min.js"></script>
+    <script src="../public/dark/assets/js/owl.carousel.min.js"></script>
+    <script src="../public/dark/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../public/dark/assets/js/custom.js"></script>

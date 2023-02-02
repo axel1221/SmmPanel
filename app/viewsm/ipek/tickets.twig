@@ -1,0 +1,71 @@
+{% include 'header.twig' %}
+
+       <div class="inner-page">
+  <section>
+    <div class="container">
+      <div class="row justify-content-center payments-panel ticket-panel">
+        <div class="col-lg-8">
+          
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% elseif success %}
+        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+
+      {% if settings['ticket_system'] == 2 %}
+
+          
+          
+          <div class="card">
+            <div class="card-body">
+          <form method="post" action="tickets">
+            <div class="form-group">
+              <label for="subject" class="control-label">Ticket Konusu</label>
+              <input type="text" class="form-control" id="subject" name="subject" value="{{ data['subject'] }}">
+            </div>
+            <div class="form-group">
+              <label for="message" class="control-label">Mesajınız</label>
+              <textarea class="form-control" rows="7" id="message" name="message">{{ data['message'] }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-green">Talep oluştur</button>
+          </form>
+        </div>
+      {% endif %}
+</div>
+      <div class="card">
+          <table class="table ">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Ticket Konusu</th>
+              <th>Durum</th>
+              <th class="nowrap">Son Güncelleme</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for ticket in ticketList %}
+                <tr>
+                  <td>{{ ticket['ticket_id'] }}</td>
+                  {% if ticket["support_new"] == 2 %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}"><strong>{{ ticket['subject'] }}</strong></a></td>
+                  {% else %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}">{{ ticket['subject'] }}</a></td>
+                  {% endif %}
+                  <td>{{ ticket['status'] }}</td>
+                  <td><span class="nowrap">{{ ticket['lastupdate_time'] }}</span></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% include 'footer.twig' %}

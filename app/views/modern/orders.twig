@@ -1,0 +1,118 @@
+{% include 'header.twig' %}
+<div id="page-wrapper">
+<div class="container">
+  <div class="inner-dashboard servicePage orderPage"> 
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="well">
+           <ul class="nav nav-pills searchBar-nav ">        
+        <li class="pull-right search">
+          <form action="/orders" method="get" id="history-search">
+            <div class="input-group">
+              <input type="text" name="search" class="form-control" value="{{ search }}" placeholder="Search orders">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </span>
+            </div>
+          </form>
+        </li>
+      </ul>
+      
+      <ul class="nav nav-pills justified-nav ">
+        <li {% if 'all' == status %}  class="active" {% endif %} ><a href="orders">{{ lang['orders.status.all'] }}</a></li>
+        <li {% if 'pending' == status %}  class="active" {% endif %}><a href="orders/pending">{{ lang['orders.status.pending'] }}</a></li>
+        <li {% if 'inprogress' == status %}  class="active" {% endif %}><a href="orders/inprogress">{{ lang['orders.status.inprogress'] }}</a></li>
+        <li {% if 'completed' == status %}  class="active" {% endif %}><a href="orders/completed">{{ lang['orders.status.completed'] }}</a></li>
+        <li {% if 'partial' == status %}  class="active" {% endif %}><a href="orders/partial">{{ lang['orders.status.partial'] }}</a></li>
+        <li {% if 'processing' == status %}  class="active" {% endif %}><a href="orders/processing">{{ lang['orders.status.processing'] }}</a></li>
+        <li {% if 'canceled' == status %}  class="active" {% endif %}><a href="orders/canceled">{{ lang['orders.status.canceled'] }}</a></li>
+      </ul>
+        <div class="table-responsive">
+          <table class="table rwd-table table-striped table-sm ">
+            <thead class="thead-dark">
+            <tr>
+              <th class="width-5"><i class="material-icons">format_list_numbered</i>{{ lang['orders.id'] }}</th>
+              <th class="width-10">{{ lang['orders.date'] }}</th>
+              <th class="width-15">{{ lang['orders.link'] }}</th>
+              <th class="width-10">{{ lang['orders.charge'] }}</th>
+              <th class="nowrap width-8">{{ lang['orders.start.count'] }}</th>
+              <th class="width-7">{{ lang['orders.quantity'] }}</th>
+              <th class="width-15"><i class="material-icons">storage</i>{{ lang['orders.service'] }}</th>
+              <th class="width-10">{{ lang['orders.status'] }}</th>
+              <th class="width-10"><i class="material-icons">flare</i>{{ lang['orders.remains'] }}</th>
+              <th class="width-10"><i class="material-icons">flare</i>Refill</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for order in orders %}
+              <tr>
+                <td>{{ order['id'] }}</td>
+                <td>{{ order['date'] }}</td>
+                <td class="width-40">{{ order['link'] }}</td>
+                <td>{{ order['charge'] }}</td>
+                <td class="nowrap">{{ order['start_count'] }}</td>
+                <td>{{ order['quantity'] }}</td>
+                <td>{{ order['service'] }}</td>
+                <td>{{ order['status'] }}</td>
+                <td>{{ order['remains'] }}</td>
+                <td><form method="POST"><input type="text" value="{{ order['id'] }}"> <button type="submit">Refill</button></form></td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+              </div>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a href="orders/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a href="orders/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+{% include 'footer.twig' %}

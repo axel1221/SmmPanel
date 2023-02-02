@@ -1,0 +1,139 @@
+{% include 'header.twig' %}
+<div id="content-wrap">
+<div class="section">
+<div class="container collapse-view">
+    <div class="text-content">
+              <div class="row">
+                <div class="col-6 mb-2">You are currently on:   <strong>Tickets</strong></div>
+                <div class="col-6 mb-2">Welcome,   <strong>{{ user['username'] }}</strong>! Your balance is <strong>{% if settings['site_currency'] == "TRY" %}{{ "&#8378;" }}
+                {% elseif settings['site_currency'] == "USD" %}{{ "&#36;" }}
+                {% else %}{{ "₹" }}
+                {% endif %}{{ user['balance'] }}</strong></div>
+              </div>
+            </div>
+  <div class="row">
+    <div class="col-md-12 col-md-offset-2">
+
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% elseif success %}
+        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+<div class="account-info wrapper-box">
+  <div class="button-bar">
+    <a data-target="#tab-history" id="nav-history" class="btn btn-primary tab-head">Tickets</a>
+
+    <a data-toggle="modal" data-target="#NewTicketModal" class="btn btn-primary" style="float:right;">New Ticket</a>
+  </div>
+      {#{% if settings['ticket_system'] == 2 %}#}
+      {#  <div class="well">#}
+      {#    <form method="post" action="tickets">#}
+      {#      <div class="form-group">#}
+      {#        <label for="subject" class="control-label">{{ lang['tickets.subject'] }}</label>#}
+      {#        <input type="text" class="form-control" id="subject" name="subject" value="{{ data['subject'] }}">#}
+      {#      </div>#}
+      {#      <div class="form-group">#}
+      {#        <label for="message" class="control-label">{{ lang['tickets.message'] }}</label>#}
+      {#        <textarea class="form-control" rows="7" id="message" name="message">{{ data['message'] }}</textarea>#}
+      {#      </div>#}
+      {#      <button type="submit" class="btn btn-primary">{{ lang['tickets.button'] }}</button>#}
+      {#    </form>#}
+      {#  </div>#}
+      {#{% endif %}#}
+      <div class="tab-content" id="tab-history">
+      <div class="service-table">
+      <div class="service-head clearfix">
+        <div class="search-bar">
+            <form action="/tickets" method="get">
+              <div class="row">
+                  <div class="col-sm-6"><input type="text" value="" id="search" name="search" placeholder="Search"></div>
+                  <div class="col-sm-6"><button type="submit" class="btn btn-primary btn-block">Search<i class="fas fa-search"></i></button></div>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class="table-responsive">
+          <table class="table custom-table">
+            <thead>
+            <tr>
+              <th class="text-center">ID</th>
+              <th>DATE</th>
+              <th>SUBJECT</th>
+              <th class="text-center">STATUS</th>
+            </tr>
+          </thead>
+            <tbody>
+              {% for ticket in ticketList %}
+                <tr>
+                  <td class="text-center">{{ ticket['ticket_id'] }}</td>
+                  <td><span class="nowrap">{{ ticket['lastupdate_time'] }}</span></td>
+                  {% if ticket["support_new"] == 2 %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}"><strong>{{ ticket['subject'] }}</strong></a></td>
+                  {% else %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}">{{ ticket['subject'] }}</a></td>
+                  {% endif %}
+                  <td class="text-center">{{ ticket['status'] }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="NewTicketModal" tabindex="-1" role="dialog" aria-labelledby="NewTicketModal" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered service-modal" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Ticket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="tickets" id="ticketsend">
+            <input type="hidden" id="hmessage" name="TicketForm[message]">
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="subject" class="control-label">{{ lang['tickets.subject'] }}</label>
+                <input type="text" class="form-control" id="subject" name="subject" value="{{ data['subject'] }}">
+              </div>
+              
+              <div class="form-group col-md-12">
+                <label for="message" class="control-label">{{ lang['tickets.message'] }}</label>
+                <textarea class="form-control" rows="7" id="message" name="message">{{ data['message'] }}</textarea>
+              </div>
+              <div class="form-group col-md-12"><button type="submit" class="btn btn-primary btn-block btn-shadow"><strong>SUBMIT</strong> NOW</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+   </div>
+</div>
+
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    <div class="col-md-8 col-md-offset-2">#}
+{#      <div class="well ">#}
+{#        {{ contentText }}#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+{% include 'footer.twig' %}

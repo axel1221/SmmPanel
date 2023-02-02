@@ -1,0 +1,132 @@
+{% include 'header.twig' %}
+
+<div class="inner-page">
+  
+  <section class="service-search-panel">
+    <div class="container">
+      <div class="search-panel">
+       <form action="" method="get">
+              <div class="form-group">
+                <div class="input-group">
+                <input type="text" name="search" class="form-control" value="" placeholder="Sipariş Numarası">
+                
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-green"><i class="fa fa-search" aria-hidden="true"> </i>Ara</button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="card my-orders-panel">
+        <div class="card-body">
+          <div class="tabs-wrapper">
+            <ul class="nav nav-justified nav-tabs dragscroll horizontal ">
+              <li  {% if 'all' == status %}  class="nav-item active" {% endif %}  class="nav-item "><a class="nav-link" href="dripfeeds"><i class="fa fa-list-ul"></i> Tüm Siparişler</a></li>
+              
+              <li {% if 'active' == status %}  class="nav-item active" {% endif %}  class="nav-item "><a class="nav-link" href="dripfeeds/active"><i class="fa fa-spinner"></i> Aktif</a></li>
+              <li  {% if 'completed' == status %}  class="nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/dripfeeds/completed"><i class="fa fa-check"></i> Tamamlandı</a></li>
+              
+              <li  {% if 'canceled' == status %}  class="nav-item active" {% endif %} class="nav-item "><a class="nav-link" href="/dripfeeds/canceled"><i class="fa fa-times-circle"></i> İptal Edildi</a></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <table class="table table-striped ">
+              <thead>
+            <tr>
+              <th>#</th>
+              <th>Tarih</th>
+              <th class="width-40">Bağlantı</th>
+              <th>Toplam Tutar</th>
+              <th class="nowrap">Miktar</th>
+              <th>Servis Adı</th>
+              <th class="nowrap">Gönderim</th>
+              <th>Gönderim Süresi</th>
+              <th>Toplam Miktar</th>
+              <th>Sipariş Durumu</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for dripFeed in orders %}
+              <tr>
+                <td>{{ dripFeed['id'] }}</td>
+                <td>{{ dripFeed['date'] }}</td>
+                <td class="width-40">{{ dripFeed['link'] }}</td>
+                <td>{{ dripFeed['total_charges'] }}</td>
+                <td class="nowrap">{{ dripFeed['quantity'] }}</td>
+                <td>{{ dripFeed['service'] }}</td>
+                <td class="nowrap">
+                  {% if dripFeed['delivery'] %}
+                    <a href="orders?dripfeed={{ dripFeed['id'] }}"> {{ dripFeed['delivery'] }} </a> / {{ dripFeed['runs'] }}
+                  {% else %}
+                    {{ dripFeed['delivery'] }} / {{ dripFeed['runs'] }}
+                  {% endif %}
+                </td>
+                <td>{{ dripFeed['interval'] }}</td>
+                <td>{{ dripFeed['total_quantity'] }}</td>
+                <td>{{ dripFeed['status'] }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a href="dripfeeds/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a href="dripfeeds/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a href="dripfeeds/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+{% include 'footer.twig' %}

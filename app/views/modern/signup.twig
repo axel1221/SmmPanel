@@ -1,0 +1,90 @@
+{% include 'header.twig' %}
+
+
+
+<!-- Main variables *content* -->
+<section class="formSection">
+	<div class="container">
+      	<div class="row">
+      		<div class="col-sm-12">
+      			<img class="p-a moon" src="https://cdn.mypanel.link/e2cdfc/zezy17g6j6z14h4d.png"/>
+              	<img class="p-a planet" src="https://cdn.mypanel.link/e2cdfc/wersztcf2ux2m4sf.png"/>
+              	<span class="p-a icon w icon1"><i class="fab fa-facebook-f"></i></span>
+              	<span class="p-a icon w icon2"><i class="fab fa-youtube"></i></span>
+              	<span class="p-a icon w icon3"><i class="fab fa-twitter"></i></span>
+              	<span class="p-a icon w icon4"><i class="fab fa-instagram"></i></span>
+      		</div>
+      	</div>
+		<div class="row">
+			<div class="col-sm-7">
+				<h1>Accelerated marketing<br> Find your true space</h1>
+              	<form  method="post" action="/signup">
+              	    
+              	  {% if errorText %}
+                        <div class="alert alert-dismissible alert-danger">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          {{ errorText }}
+                        </div>
+                      {% endif %}
+                      {% if successText %}
+                        <div class="alert alert-dismissible alert-success">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          {{ successText }}
+                        </div>
+                  {% endif %}
+                                                      
+                  <div class="row">
+                  	<div class="col-sm-12">                      
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" value="{{ data['name'] }}" placeholder="Name" >
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="email" value="{{ data['email'] }}" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="username" value="{{ data['username'] }}" placeholder="Username">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="telephone" value="{{ data['telephone'] }}" placeholder="Mobile No.">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" name="password_again" placeholder="Confirm Password">
+                      </div>
+                  	</div>
+                  </div>
+                  <div class="row">
+                  	<div class="col-sm-6">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="terms" value="1"> {{ lang['signup.accept_terms_text'] }}
+                        </label>
+                      </div>
+                     {% if captcha %}
+                        <div class="form-group">
+                          <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+                        </div>
+                     {% endif %}
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                  	</div>
+                    <div class="col-sm-6">
+                  		
+                  	</div>
+                  </div>
+                </form>
+			</div>
+          	<div class="col-sm-5">
+				<img class="rakit" src="https://cdn.mypanel.link/e2cdfc/ywhp4d1zmxgpa1j3.png"/>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+{% include 'footer.twig' %}

@@ -1,0 +1,89 @@
+{% include 'header.twig' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+<div class="well ">
+<center><font color="#000000"><b><font size="5">DESTEK SAATLERİ</font></b></font></center>
+<br><center><font color="#FF6666"><font size="4">07:00 - 24:00</font></font></center>
+
+          <ul class="list-p">
+          	<li>Eğer sipariş ile ilgili bir probleminiz varsa lütfen  <b>SİPARİŞ</b> adı altında destek talebi oluşturunuz.</li>
+          	<li>Eğer ödeme ile ilgili bir probleminiz varsa lütfen <b>ÖDEME</b> adı altında destek talebi oluşturunuz.</li>
+          		<li>Başka bir durum söz konusuysa <b>DİĞER</b> adı altında destek talebi oluşturunuz.</li>
+          	</ul>
+          	<br>
+
+          	<p><strong>Destek Talebi Oluşturmadan Önce Mutlaka <a href="faq">Sıkça Sorulan Soruları Okuyunuz.</a></strong></p>
+          	<p>Eğer sorununuz çözülürse lütfen yeni bir destek talebi oluşturunuz.</p>
+        </div>
+      
+      {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ errorText }}
+        </div>
+      {% elseif success %}
+        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+
+      {% if settings['ticket_system'] == 2 %}
+        <div class="well">
+          <form method="post" action="tickets">
+            <div class="form-group">
+              <label for="subject" class="control-label">{{ lang['tickets.subject'] }}</label>
+              <input type="text" class="form-control" id="subject" name="subject" value="{{ data['subject'] }}">
+            </div>
+            <div class="form-group">
+              <label for="message" class="control-label">{{ lang['tickets.message'] }}</label>
+              <textarea class="form-control" rows="7" id="message" name="message">{{ data['message'] }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">{{ lang['tickets.button'] }}</button>
+          </form>
+        </div>
+      {% endif %}
+
+      <div class="well">
+          <table class="table ">
+            <thead>
+            <tr>
+              <th>{{ lang['tickets.id'] }}</th>
+              <th>{{ lang['tickets.subject'] }}</th>
+              <th>{{ lang['tickets.status'] }}</th>
+              <th class="nowrap">{{ lang['tickets.updated'] }}</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for ticket in ticketList %}
+                <tr>
+                  <td>{{ ticket['ticket_id'] }}</td>
+                  {% if ticket["support_new"] == 2 %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}"><strong>{{ ticket['subject'] }}</strong></a></td>
+                  {% else %}
+                    <td><a href="tickets/{{ ticket['ticket_id'] }}">{{ ticket['subject'] }}</a></td>
+                  {% endif %}
+                  <td>{{ ticket['status'] }}</td>
+                  <td><span class="nowrap">{{ ticket['lastupdate_time'] }}</span></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="well ">
+        {{ contentText }}
+      </div>
+    </div>
+  </div>
+</div>
+     
+{% include 'footer.twig' %}

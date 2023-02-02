@@ -1,0 +1,203 @@
+ <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <base href="{{ site['url'] }}/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="keywords" content="{{ site['keywords'] }}">
+  <meta name="description" content="{{ site['description'] }}">
+  {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+  {% endif %}
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../public/light/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../public/light/assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+</head>
+
+<body class="">
+
+{% if user['auth'] %}
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="green">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <center><a href="{{ site['url'] }}" class="simple-text logo-normal">
+          @{{ user['username'] }}
+        </a></center>
+                <center><a href="addfunds" class="simple-text">Bakiye {{ user['balance'] }} TL </a></center>
+        <a href="account" class="btn btn-primary btn-sm btn-block">Hesabım</a>
+        <a href="logout" class="btn btn-danger btn-sm btn-block">Çıkış Yap</a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active ">
+            <a href="/">
+              <i class="fa fa-plus-circle"></i>
+              <p>{{ lang['neworder.title'] }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="services">
+              <i class="fa fa-archive"></i>
+              <p>{{ lang['services.title'] }}</p>
+            </a>
+          </li>
+          <li routerlinkactive="active">
+            <a data-toggle="collapse" href="#siparisler" class="collapsed" aria-expanded="false">
+              <i class="fa fa-cart-plus"></i><p>Siparişler<b class="caret"></b></p>
+              </a>
+              <div class="collapse" id="siparisler" style="">
+              <ul class="nav">
+                  <li routerlinkactive="active">
+                    <li>
+                        <a href="orders">
+                        <i class="fa fa-angle-right"></i>
+                        <p>{{ lang['orders.title'] }}</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dripfeeds">
+                        <i class="fa fa-angle-right"></i>
+                        <p>{{ lang['dripfeed.title'] }}</p>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+          </li>
+          <li>
+            <a href="addfunds">
+              <i class="fa fa-credit-card"></i>
+              <p>{{ lang['addfunds.title'] }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="api">
+              <i class="fa fa-cogs"></i>
+              <p>{{ lang['api.title'] }}</p>
+            </a>
+          </li>
+          <li routerlinkactive="active">
+            <a data-toggle="collapse" href="#diger" class="collapsed" aria-expanded="false">
+              <i class="fa fa-chevron-circle-right"></i><p>Diğer İşlemler<b class="caret"></b></p>
+              </a>
+              <div class="collapse" id="diger" style="">
+              <ul class="nav">
+                  <li routerlinkactive="active">
+                    <li>
+                        <a href="subscriptions">
+                        <i class="fa fa-angle-right"></i>
+                        <p>{{ lang['subscriptions.title'] }}</p>
+                        </a>
+                    </li>
+                      <li>
+                        <a href="faq">
+                        <i class="fa fa-angle-right"></i>
+                        <p>{{ lang['faq.title'] }}</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="terms">
+                        <i class="fa fa-angle-right"></i>
+                        <p>{{ lang['terms.title'] }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+          </li>
+          <li>
+            <a href="tickets">
+              <i class="fa fa-comments"></i>
+              <p>{{ lang['tickets.title'] }}</p>
+            </a>
+          </li><p></p>
+          <center></center>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand">{{ settings['site_name']  }}</a>
+          </div>
+        </div>
+      </nav>
+{% else %}
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="green">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <a href="signin" class="btn btn-primary btn-sm btn-block">Giriş Yap</a>
+        <a href="signup" class="btn btn-danger btn-sm btn-block">Kayıt Ol</a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="services">
+              <i class="fa fa-angle-right"></i>
+              <p>{{ lang['services.title'] }}</p>
+            </a>
+          </li>            
+          <li>
+            <a href="api">
+              <i class="fa fa-angle-right"></i>
+              <p>{{ lang['api.title'] }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="faq">
+              <i class="fa fa-angle-right"></i>
+              <p>{{ lang['faq.title'] }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="terms">
+              <i class="fa fa-angle-right"></i>
+              <p>{{ lang['terms.title'] }}</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand">{{ settings['site_name']  }}</a>
+          </div>
+        </div>
+      </nav>
+{% endif %}
+
+{% include 'giris.twig' %}

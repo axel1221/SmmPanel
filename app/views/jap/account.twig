@@ -1,0 +1,82 @@
+{% include 'header.twig' %}
+
+<div id="content-wrap">
+<div class="section">
+<div class="container collapse-view">
+    <div class="text-content">
+              <div class="row">
+                <div class="col-6 mb-2">You are currently on:   <strong>Account</strong></div>
+                <div class="col-6 mb-2">Welcome,   <strong>{{ user['username'] }}</strong>! Your balance is <strong>{% if settings['site_currency'] == "TRY" %}{{ "&#8378;" }}
+                {% elseif settings['site_currency'] == "USD" %}{{ "&#36;" }}
+                {% else %}{{ "₹" }}
+                {% endif %}{{ user['balance'] }}</strong></div>
+              </div>
+            </div>
+            
+            {% if error %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if success %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+  <div class="account-info wrapper-box">
+  <div class="media">
+    <img id="gender_img" style="width: 75px;" src="https://yourperfectapp.com/jap3/dashboard/img/profile1.png" alt="">
+    <div class="media-body">
+      <h5>{{ user['name'] }}<small>@{{ user['username'] }}</small></h5>
+      <ul>
+        <li><a href="#" class="btn btn-primary"> NEW  ACCOUNT</a></li>
+        <li>
+          <div class="radio-div clearfix">
+            <input type="radio" name="gender" id="male" value="male"  checked ><label for="male"><i class="fas fa-mars mr-2"></i>Male</label>
+            <input type="radio" name="gender" id="female" value="female" ><label for="female">Female<i class="fas fa-venus ml-2"></i></label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  <form method="post" action="">
+    <div class="row">
+      <div class="col-md-4"><input type="password" name="current_password" class="form-control" placeholder="CURRENT PASSWORD"></div>
+      <div class="col-md-4"><input type="password" name="password" class="form-control" placeholder="NEW PASSWORD"></div>
+      <div class="col-md-4"><input type="password" name="confirm_password" class="form-control" placeholder="CONFIRM NEW PASSWORD"></div>
+      <div class="col-md-12"><button type="submit" class="btn btn-primary btn-block btn-shadow">CHANGE NOW</button></div>
+    </div>
+  </form>
+  
+  <form method="post" action="account/timezone">
+    <div class="row">
+      <div class="col-md-8">
+        <select name="timezone" class="form-control" >
+                {% for timezone in timezones %}
+                 <option {% if timezone["timezone"] == user['timezone'] %} selected {% endif %} value="{{ timezone["timezone"] }}">{{ timezone["label"] }}</option>
+                {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4"><button type="submit" class="btn btn-primary btn-block btn-shadow">SAVE NOW</button></div>
+    </div>
+  </form>
+  
+  <form action="account/newapikey" method="post">
+    <div class="row">
+      <div class="col-md-8"><input type="text" class="form-control" value="{{ user['apikey'] }}" placeholder="API KEY" readonly></div>
+      <div class="col-md-4"><button type="submit" class="btn btn-primary btn-block btn-shadow">GENERATE NOW</button></div>
+    </div>
+  </form>
+      
+
+    </div>
+  </div>
+</div>
+  </div>
+
+
+{% include 'footer.twig' %}

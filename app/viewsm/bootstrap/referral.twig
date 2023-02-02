@@ -1,0 +1,48 @@
+{% include 'header.view.twig' %}
+<div class="content">
+	<div class="container-fluid container-fixed">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="well well-float">
+					<table class="table rwd-table">
+						<thead>
+							<tr>
+								<th>Referans linki</th>
+								<th>Referans Bonusu</th>
+								<th>Referans Tipi (Max {{ setting.ref_max }}TL)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="{{ setting.site_protocol }}://{{ setting.site_url }}?ref=mya{{ user['id'] }}TR" style="text-decoration: none;">{{ setting.site_protocol }}://{{ setting.site_url }}?ref=mya{{ user['id'] }}TR</a></td>
+								<td>{{setting.ref_bonus}}%</td>
+								<td>{% if setting.ref_type == 1 %}İlk Yüklemede{% else %}Her Yüklemede{% endif %}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="well well-float">
+					<table class="table rwd-table">
+						<thead>
+							<tr>
+								<th>Toplam Yönlendirilen Kullanıcı</th>
+								<th>Toplam Ödeme</th>
+								<th>Toplam Kazanç</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{ ref['adet'] }}</td>
+								<td>{{user['reforder']}}</td>
+								<td>{{user['refchar']}}₺</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% include 'footer.view.twig' %}

@@ -1,0 +1,186 @@
+{% include 'header.twig' %}
+<div class="container">
+   <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+         <div class="well api well-float">
+            <div class="center-big-content-block">
+               <h2 class="m-b-md">API Documentation</h2>
+               <table class="table table-bordered">
+                  <tbody>
+                     <tr>
+                        <td class="width-40">HTTP Method</td>
+                        <td>POST</td>
+                     </tr>
+                     <tr>
+                        <td>API URL</td>
+                        <td>{{ site["url"] }}/api/v2</td>
+                     </tr>
+                     {% if user['auth'] %}
+                     <tr>
+                        <td>API Key</td>
+                        <td>{{ user["apikey"] }}</td>
+                     </tr>
+                     {% endif %}
+                     <tr>
+                        <td>Return Format</td>
+                        <td>JSON</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <h4 class="m-t-md"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Service List </font></font></strong></h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th class="width-40"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Parameter</font></font></th>
+                        <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Explanation</font></font></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the key</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">User API Key</font></font></td>
+                     </tr>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">action</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">services</font></font></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sample return</font></font></strong></p>
+               <pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    {</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "service": 1,</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "name": "Followers",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "type": "Default",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "category": "First Category",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "rate": "0.90",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "min": "50",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "max": "10000"</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    },</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    {</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "service": 2,</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "name": "Comments",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "type": "Custom Comments",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "category": "Second Category",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "rate": "8",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "min": "10",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        "max": "1500"</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    }</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+]</font></font></pre>
+               <h4 class="m-t-md"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> New order </font></font></strong></h4>
+               <p>
+               </p>
+               <form class="form-inline">
+                  <div class="form-group">
+                     <select class="form-control input-sm" id="api_servicetype">
+                        <option value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Standard</font></font></option>
+                     </select>
+                  </div>
+               </form>
+               <p></p>
+               <div id="add_">
+                  <table class="table table-bordered">
+                     <thead>
+                        <tr>
+                           <th class="width-40"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Parameter</font></font></th>
+                           <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Explanation</font></font></th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the key</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">User API Key</font></font></td>
+                        </tr>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">action</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">addi</font></font></td>
+                        </tr>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">service</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Service ID</font></font></td>
+                        </tr>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">link</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Service connection</font></font></td>
+                        </tr>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">quantity</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quantity</font></font></td>
+                        </tr>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">runs (optional)</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Runs to deliver</font></font></td>
+                        </tr>
+                        <tr>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">interval (optional)</font></font></td>
+                           <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Interval in minutes</font></font></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sample return</font></font></strong></p>
+               <pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "order": 23501</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+}</font></font></pre>
+               <h4 class="m-t-md"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Order status </font></font></strong></h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th class="width-40"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Parameter</font></font></th>
+                        <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Explanation</font></font></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the key</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">User API Key</font></font></td>
+                     </tr>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">action</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">status</font></font></td>
+                     </tr>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ORDER</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Order ID</font></font></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sample return</font></font></strong></p>
+               <pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "charge": "0.27819",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "start_count": "3572",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "status": "Partial",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "remains": "157",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "currency": "TRY"</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+}</font></font></pre>
+               <h4 class="m-t-md"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> User balance </font></font></strong></h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th class="width-40"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Parameter</font></font></th>
+                        <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Explanation</font></font></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the key</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">User API Key</font></font></td>
+                     </tr>
+                     <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">action</font></font></td>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">balance</font></font></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sample return</font></font></strong></p>
+               <pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "balance": "100.84292",</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    "currency": "TRY"</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+}</font></font></pre>
+               <a href="example.txt" class="btn btn-default m-t" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sample PHP file</font></font></a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% include 'footer.twig' %}
